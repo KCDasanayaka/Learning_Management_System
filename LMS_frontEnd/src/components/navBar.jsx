@@ -1,10 +1,10 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
-
+import '../pages/Home'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
+  { name: 'Home', href: '../pages/Home', current: true },
+  { name: 'AboutUs', href: '../pages/AboutUs', current: false },
   { name: 'Projects', href: '#', current: false },
   { name: 'Calendar', href: '#', current: false },
 ]
