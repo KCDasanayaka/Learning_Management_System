@@ -2,8 +2,13 @@ import React from 'react'
 
 function Home() {
   return (
-    <div className="bg-white min-h-screen flex items-center justify-center">
-        <h1 className='text-3xl font-bold text-white'>Home Page</h1>
+    <div>
+      <div className="home">
+        <h1 className='text-green-500'>Home Page</h1>
+      </div>
+      <div className="bg-blue-500 text-white text-center py-10">
+        <h1 className="text-4xl font-bold">Home Page</h1>
+      </div>
     </div>
   )
 }
