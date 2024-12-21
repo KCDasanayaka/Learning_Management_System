@@ -15,6 +15,7 @@ function App() {
     <Router>
       <div className="App">
         {/* Navigation Bar */}
+        <Navbar />
 
         {/* Routes for Different Pages */}
         <Routes>
