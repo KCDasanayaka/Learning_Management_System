@@ -45,7 +45,7 @@ const HeroImageCarousel = () => {
       <Slider {...settings}>
         {images.map((image, index) => (
           <div key={index}>
-            <div className="relative h-[250px] sm:h-[350px] md:h-[450px] lg:h-[600px]">
+            <div className="relative h-[350px] sm:h-[450px] md:h-[550px] lg:h-[600px]">
               <div
                 className="h-full bg-cover bg-center"
                 style={{ backgroundImage: `url(${image})` }}

@@ -1,4 +1,5 @@
 import "react";
+import { MdLocationOn, MdPhone, MdEmail } from "react-icons/md";
 
 const ContactUs = () => {
   return (
@@ -13,26 +14,26 @@ const ContactUs = () => {
           <div className="w-full md:w-1/2">
             <div className="space-y-6">
               <div className="flex items-center gap-4">
-                <i className="fas fa-map-marker-alt text-xl text-red-700"></i>
+                <MdLocationOn className="text-xl sm:text-2xl text-red-700" />
                 <p className="text-gray-700 text-sm sm:text-base">
                   Pathagama, Kuruwita
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <i className="fas fa-phone-alt text-xl text-red-700"></i>
+                <MdPhone className="text-xl sm:text-2xl text-red-700" />
                 <p className="text-gray-700 text-sm sm:text-base">
                   078 596 2354 / 045 589 2365
                 </p>
               </div>
               <div className="flex items-center gap-4">
-                <i className="fas fa-envelope text-xl text-red-700"></i>
+                <MdEmail className="text-xl sm:text-2xl text-red-700" />
                 <p className="text-gray-700">
                   {" "}
                   <a
                     href="mailto:pathagamamahavidyalaya@gmail.com"
                     className="text-red-700 text-sm sm:text-base hover:underline"
                   >
-                    pathagamamahavidyalaya@gmail.com
+                    pathagamavidyalaya@gmail.com
                   </a>
                 </p>
               </div>
