@@ -129,6 +129,15 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  to="/gallery"
+                  className="hover:text-yellow-500"
+                  onClick={toggleMenu}
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/contact"
                   className="hover:text-yellow-500"
                   onClick={toggleMenu}
