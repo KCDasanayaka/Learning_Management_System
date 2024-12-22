@@ -7,6 +7,7 @@ import News from './pages/News';
 import Academic from './pages/Academic';
 import Header from './components/Header';
 import ContactUs from './pages/ContactUs';
+import Footer from './components/footer';
 // import NavBar from './components/NavBar';
 
 const App = () => {
@@ -28,7 +29,7 @@ const App = () => {
       </Routes>
 
       {/* Footer */}
-
+      <Footer />
     </Router>
   );
 }
