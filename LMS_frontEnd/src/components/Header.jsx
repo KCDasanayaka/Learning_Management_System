@@ -12,10 +12,9 @@ const Header = () => {
 
   return (
     <>
-      {/* Fixed Header */}
+      
       <header className="bg-red-900 text-white py-4 fixed w-full top-0 left-0 z-50 font-inter">
         <div className="container mx-auto flex justify-between items-center px-4">
-          {/* Logo and Heading */}
           <div className="flex items-center">
             <img src={School_logo} alt="Logo" className="h-10 mr-6" />
             <h1 className="text-lg font-bold hidden sm:block">
@@ -69,15 +68,13 @@ const Header = () => {
         </div>
       </header>
 
-      {/* Main Content (Below Header) */}
       <main>
         {/* Mobile Dropdown Menu */}
         <div
           className={`sm:hidden fixed inset-0 bg-red-900 bg-opacity-95 z-50 flex items-center justify-center transition-transform duration-300 ease-in-out ${isMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
-         
-
+      
           {/* Close button */}
           <div className="absolute top-48">
             <button
@@ -87,9 +84,9 @@ const Header = () => {
               <IoMdClose />
             </button>
           </div>
+
            {/* Menu Container */}
           <div className="relative  text-white rounded-lg p-6 w-full max-w-sm">
-            {/* Centered Menu Items */}
             <ul className="flex flex-col items-center space-y-8 text-lg mt-10">
               <li>
                 <Link
