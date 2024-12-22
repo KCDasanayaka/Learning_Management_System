@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import image from "../assets/SchoolLogos/image1.png";
 import Logo from "../assets/SchoolLogos/School_logo.png";
+import PrincipalCards from "../components/PrincipalCard";
 
 
 const About = () => {
@@ -90,6 +91,7 @@ const About = () => {
                 </section>
             </div>
             
+            <PrincipalCards/>
 
         </div>
     );
