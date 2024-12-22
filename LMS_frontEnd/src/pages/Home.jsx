@@ -1,9 +1,10 @@
 import 'react'
+import HeroImageCarousel from '../components/HeroCarousel'
 
 function Home() {
   return (
-    <div>
-      
+    <div className="font-inter">
+      <HeroImageCarousel />
     </div>
   )
 }
