@@ -16,7 +16,6 @@ const Body = () => {
       <AboutSection/>
 
       {/* Stats Section */}
-    
       <StatsSection/>
 
       {/* Learning Online Section */}
@@ -28,7 +27,7 @@ const Body = () => {
 
         {/* Yellow Layer */}
         <div className="absolute inset-0 bg-yellow-600 opacity-80"></div>
-        
+
         <motion.div
           className="relative container mx-auto text-center px-4 sm:px-6 lg:px-8"
           initial={{ opacity: 0, scale: 0.9 }}
