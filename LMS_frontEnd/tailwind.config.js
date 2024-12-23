@@ -5,9 +5,22 @@ export default {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        kumbh: ['"Kumbh Sans"', 'sans-serif'],
       },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addUtilities }) {
+      addUtilities({
+        '.font-optical': {
+          'font-optical-sizing': 'auto',
+        },
+        '.font-yopq-300': {
+          'font-variation-settings': '"YOPQ" 300',
+        },
+        // Add more custom utilities here as needed
+      });
+    },
+  ],
 };
 

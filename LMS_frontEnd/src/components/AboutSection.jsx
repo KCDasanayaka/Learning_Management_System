@@ -9,7 +9,7 @@ const AboutSection = () => {
   });
 
   return (
-    <div>
+    <div className="font-kumbh">
       {/* About Section Info */}
       <section className="py-12 bg-gray-100">
         <motion.div
