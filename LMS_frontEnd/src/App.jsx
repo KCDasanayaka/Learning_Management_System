@@ -1,35 +1,35 @@
-import { useState } from 'react'
-import './App.css'
+import 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import AboutUs from './pages/AboutUs';
-import ContactUs from './pages/ContactUs';
+import About from './pages/About';
 import Gallery from './pages/Gallery';
 import News from './pages/News';
 import Academic from './pages/Academic';
-import Navbar from './components/navBar';
+import Header from './components/Header';
+import ContactUs from './pages/ContactUs';
 import Footer from './components/footer';
+// import NavBar from './components/NavBar';
 
-function App() {
+const App = () => {
   return (
     <Router>
-      <div className="App">
-        {/* Navigation Bar */}
-        <Navbar />
 
-        {/* Routes for Different Pages */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about-us" element={<AboutUs />} />
-          <Route path="/contact-us" element={<ContactUs />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/news" element={<News />} />
-          <Route path="/news/:id" element={<Academic />} />
-        </Routes>
+      {/*header */}
+      <Header />
+      {/* <NavBar/> */}
 
-        {/* Footer */}
-        <Footer />
-      </div>
+      {/* Routes for Different Pages */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/news" element={<News />} />
+        <Route path="/academic" element={<Academic />} />
+      </Routes>
+
+      {/* Footer */}
+      <Footer />
     </Router>
   );
 }
