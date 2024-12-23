@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import image from "../assets/SchoolLogos/image1.png"
 import StatsSection from './StatsSection';
 import AboutSection from './AboutSection';
+import SchAbout from './SchAbout';
 
 const Body = () => {
     useEffect(() => {
@@ -14,6 +15,7 @@ const Body = () => {
 
             {/* About Section */}
             <AboutSection />
+            <SchAbout/>
 
             {/* Stats Section */}
             <StatsSection />
