@@ -1,44 +1,52 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import studentsImg from '../assets/image 1.png'; // Updated to use the uploaded image
 import { motion } from 'framer-motion';
 
 const AboutSection = () => {
   const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById('sch-about');
-      const rect = section.getBoundingClientRect();
+    // IntersectionObserver logic to detect when the section enters the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimate(true); // Trigger animation when in view
+          } else {
+            setAnimate(false); // Reset animation when out of view
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger the animation when 10% of the section is visible
+      }
+    );
 
-      // Check if the section is fully visible
-      const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-      if (isVisible) {
-        setAnimate(true); // Trigger animation
-      } else {
-        setAnimate(false); // Reset animation when out of view
+    // Cleanup observer on component unmount
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
-
-    // Attach the scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup on unmount
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  // Animation variants with Zoom effect
+  const fadeInZoom = {
+    hidden: { opacity: 0, y: 50, scale: 0.9 }, // Initial state with smaller scale and hidden
+    visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 1 } }, // Fade in and zoom in when visible
   };
 
   return (
     <motion.div
-      id="sch-about"
+      ref={sectionRef}
       initial="hidden"
       animate={animate ? 'visible' : 'hidden'}
-      variants={fadeIn}
+      variants={fadeInZoom}
       className="font-kumbh"
     >
       <div className="flex flex-col lg:flex-row items-center justify-center m-12 relative">
@@ -55,15 +63,16 @@ const AboutSection = () => {
         {/* Text Section */}
         <div className="text-black font-kumbh flex-1 lg:ml-10 mr-10">
           <h1 className="text-4xl lg:text-8xl font-bold lg:text-left text-center">
-          132 Years of
-          Excellence
+            132 Years of
+            Excellence
           </h1>
           <p className="text-base lg:text-base lg:text-justify text-center mt-2">
-          Welcome to R/Pathagama Maha Vidyalaya, where we provide a nurturing environment for students to learn, grow, and excel. Our dedicated faculty and state-of-the-art facilities ensure a well-rounded education that prepares students for success in the modern world.
+            Welcome to R/Pathagama Maha Vidyalaya, where we provide a nurturing environment for students to learn, grow, and excel. Our dedicated faculty and state-of-the-art facilities ensure a well-rounded education that prepares students for success in the modern world.
           </p>
         </div>
       </div>
     </motion.div>
   );
 };
+
 export default AboutSection;
