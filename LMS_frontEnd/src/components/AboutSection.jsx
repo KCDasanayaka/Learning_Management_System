@@ -1,35 +1,69 @@
-import "react";
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
+import React, { useState, useEffect } from 'react';
+import studentsImg from '../assets/image 1.png'; // Updated to use the uploaded image
+import { motion } from 'framer-motion';
 
 const AboutSection = () => {
-  const [infoRef, infoInView] = useInView({
-    triggerOnce: true,// Trigger the animation only once
-    threshold: 0.2,// Start animation when 20% of the section is visible
-  });
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById('sch-about');
+      const rect = section.getBoundingClientRect();
+
+      // Check if the section is fully visible
+      const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+
+      if (isVisible) {
+        setAnimate(true); // Trigger animation
+      } else {
+        setAnimate(false); // Reset animation when out of view
+      }
+    };
+
+    // Attach the scroll event listener
+    window.addEventListener('scroll', handleScroll);
+
+    // Cleanup on unmount
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Animation variants
+  const fadeIn = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
+  };
 
   return (
-    <div className="font-kumbh">
-      {/* About Section Info */}
-      <section className="py-12 bg-gray-100">
-        <motion.div
-          ref={infoRef} // Attach the ref
-          className="container mx-auto text-center px-4 sm:px-6 lg:px-8"
-          initial={{ opacity: 0, y: 50 }}
-          animate={infoInView ? { opacity: 1, y: 0 } : {}} // Animate only if in view
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="text-4xl font-bold mb-4">132 YEARS OF EXCELLENCE</h2>
-          <p className="text-gray-700 max-w-2xl mx-auto">
-          R/Pathagama Maha Vidyalaya, established in 1891, stands as a pillar
-    of Sri Lankan education. With dedicated faculty and a serene
-    environment, we provide well-rounded education that fosters growth
-    and prepares students for success in the modern world.
+    <motion.div
+      id="sch-about"
+      initial="hidden"
+      animate={animate ? 'visible' : 'hidden'}
+      variants={fadeIn}
+      className="font-kumbh"
+    >
+      <div className="flex flex-col lg:flex-row items-center justify-center m-12 relative">
+        {/* Image Section with Gradient Overlay */}
+        <div className="relative w-full lg:w-1/2 ml-10">
+          <img
+            src={studentsImg}
+            alt="Students"
+            className="w-full h-auto rounded-lg "
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white rounded-lg"></div>
+        </div>
+
+        {/* Text Section */}
+        <div className="text-black font-kumbh flex-1 lg:ml-10 mr-10">
+          <h1 className="text-4xl lg:text-8xl font-bold lg:text-left text-center">
+          132 Years of
+          Excellence
+          </h1>
+          <p className="text-base lg:text-base lg:text-justify text-center mt-2">
+          Welcome to R/Pathagama Maha Vidyalaya, where we provide a nurturing environment for students to learn, grow, and excel. Our dedicated faculty and state-of-the-art facilities ensure a well-rounded education that prepares students for success in the modern world.
           </p>
-        </motion.div>
-      </section>
-    </div>
+        </div>
+      </div>
+    </motion.div>
   );
 };
-
 export default AboutSection;
