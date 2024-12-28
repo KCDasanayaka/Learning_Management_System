@@ -1,41 +1,50 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import hImg from '../assets/hImg2.png';
 import { motion } from 'framer-motion';
 
 const SchAbout = () => {
   const [animate, setAnimate] = useState(false);
+  const sectionRef = useRef(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById('sch-about');
-      const rect = section.getBoundingClientRect();
+    // IntersectionObserver logic to detect when the section enters the viewport
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setAnimate(true); // Trigger animation when the section is in view
+          } else {
+            setAnimate(false); // Reset animation when out of view
+          }
+        });
+      },
+      {
+        threshold: 0.1, // Trigger the animation when 10% of the section is visible
+      }
+    );
 
-      // Check if the section is fully visible
-      const isVisible = rect.top >= 0 && rect.bottom <= window.innerHeight;
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
 
-      if (isVisible) {
-        setAnimate(true); // Trigger animation
-      } else {
-        setAnimate(false); // Reset animation when out of view
+    // Cleanup observer on component unmount
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
       }
     };
-
-    // Attach the scroll event listener
-    window.addEventListener('scroll', handleScroll);
-
-    // Cleanup on unmount
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Animation variants
   const fadeIn = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 150 },
     visible: { opacity: 1, y: 0, transition: { duration: 1 } },
   };
 
   return (
     <motion.div
       id="sch-about"
+      ref={sectionRef}
       initial="hidden"
       animate={animate ? 'visible' : 'hidden'}
       variants={fadeIn}
