@@ -51,17 +51,17 @@ const AboutSection = () => {
     >
       <div className="flex flex-col lg:flex-row items-center justify-center m-12 relative">
         {/* Image Section with Gradient Overlay */}
-        <div className="relative w-full lg:w-1/2 ml-10">
+        <div className="relative w-full lg:w-1/2 ml-10 lg:order-1 order-1">
           <img
             src={studentsImg}
             alt="Students"
-            className="w-full h-auto rounded-lg "
+            className="w-full h-auto rounded-t-lg lg:rounded-t-lg"  // Apply rounded corners only on top-left and top-right
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent to-white rounded-lg"></div>
+          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-transparent to-white rounded-t-lg lg:rounded-lg"></div>
         </div>
 
         {/* Text Section */}
-        <div className="text-black font-kumbh flex-1 lg:ml-10 mr-10">
+        <div className="text-black font-kumbh flex-1 lg:ml-10 mr-10 lg:order-2 order-1">
           <h1 className="text-4xl lg:text-8xl font-bold lg:text-left text-center">
             132 Years of
             Excellence
