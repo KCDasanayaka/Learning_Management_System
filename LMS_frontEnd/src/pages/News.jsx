@@ -3,14 +3,11 @@ import 'react'
 const News = () => {
   return (
     <div>
-      <h1 className="font-kumbh text-3xl text-center mt-12">News</h1>
+      <div className="bg-primary py-12">
+      <h1 className="font-kumbh text-3xl text-center mt-12">News</h1></div>
       <div className="flex flex-col lg:flex-row items-center justify-center m-12 relative">
         <div className="relative w-full lg:w-1/2 ml-10 lg:order-1 order-1">
-          <img
-            src="https://images.unsplash.com/photo-1606781188506-5f0b4f0b5c7f"
-            alt="Students"
-            className="w-full h-auto rounded-t-lg lg:rounded-t-lg"
-          />
+          
           <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-transparent to-white rounded-t-lg lg:rounded-lg"></div>
         </div>
         <div className="w-full lg:w-1/2 p-8 lg:p-12 bg-white rounded-b-lg lg:rounded-b-lg shadow-lg lg:shadow-lg mt-4 lg:mt-0 lg:ml-10 lg:order-0 order-0">
