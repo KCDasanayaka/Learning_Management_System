@@ -16,12 +16,7 @@ const News = () => {
             Get the latest news and updates from our blog. We cover everything from new features to tips and tricks to help you succeed.
           </p>
           <div className="flex justify-center lg:justify-start mt-8">
-            <a
-              href="#"
-              className="font-kumbh text-white bg-primary py-2 px-6 rounded-full hover:bg-primary-dark transition duration-300"
-            >
-              Read More
-            </a>
+            
           </div>
         </div>
       </div>
