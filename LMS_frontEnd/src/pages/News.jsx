@@ -1,27 +1,57 @@
-import 'react'
+import React from 'react';
 
 const News = () => {
   return (
     <div>
+      {/* News Header */}
       <div className="bg-primary py-12">
-      <h1 className="font-kumbh text-3xl text-center mt-12">News</h1></div>
-      <div className="flex flex-col lg:flex-row items-center justify-center m-12 relative">
-        <div className="relative w-full lg:w-1/2 ml-10 lg:order-1 order-1">
-          
-          <div className="absolute inset-0 bg-gradient-to-b lg:bg-gradient-to-r from-transparent to-white rounded-t-lg lg:rounded-lg"></div>
-        </div>
-        <div className="w-full lg:w-1/2 p-8 lg:p-12 bg-white rounded-b-lg lg:rounded-b-lg shadow-lg lg:shadow-lg mt-4 lg:mt-0 lg:ml-10 lg:order-0 order-0">
-          <h2 className="font-kumbh text-2xl text-center lg:text-left">Stay Updated</h2>
-          <p className="font-rubik text-lg text-center lg:text-left mt-4">
-            Get the latest news and updates from our blog. We cover everything from new features to tips and tricks to help you succeed.
-          </p>
-          <div className="flex justify-center lg:justify-start mt-8">
-            
+        <h1 className="font-kumbh text-4xl text-center text-yellow-500 uppercase">News</h1>
+      </div>
+
+      {/* News Cards */}
+      <div className="flex flex-col items-center justify-center m-12 space-y-6">
+        {/* Single News Card */}
+        {[...Array(3)].map((_, index) => (
+          <div
+            key={index}
+            className="w-full lg:w-3/4 bg-yellow-500 rounded-lg shadow-lg overflow-hidden"
+          >
+            {/* Title Section */}
+            <div className="p-4">
+              <h2 className="font-kumbh text-2xl text-center font-bold text-black">
+                Admission to A/L Section – Online Application 2024
+              </h2>
+            </div>
+
+            {/* Description Section */}
+            <div className="bg-maroon-500 text-white px-6 py-4">
+              <p className="font-kumbh text-lg leading-relaxed">
+                This application is for both students of Royal College as well as External
+                students who wish to pursue their A/L education at R/Pathagama Maha Vidyalaya.
+                <br />
+                <br />
+                <strong>Dear students,</strong>
+                <br />
+                Please note the requirements for admission to Advanced Level Classes:
+                General Requirements: At least SIX passes with a minimum of THREE credits
+                including Sinhala and Mathematics at the GCE (O/L) – 2024 December Examination.
+                One of the credits should be for a relevant subject offered at the Advanced Level.
+              </p>
+              {/* See More Link */}
+              <div className="mt-4 text-right">
+                <a
+                  href="#"
+                  className="text-yellow-300 font-bold hover:underline"
+                >
+                  See More&gt;&gt;&gt;
+                </a>
+              </div>
+            </div>
           </div>
-        </div>
+        ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default News
+export default News;
