@@ -1,6 +1,6 @@
 import React from 'react'
 
-const () = () => {
+const = () => {
   return (
     <div>
       {/* Gallery Header */}
