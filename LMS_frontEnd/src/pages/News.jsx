@@ -41,7 +41,7 @@ const News = () => {
               <div className="mt-4 text-right">
                 <a
                   href="#"
-                  className="text-yellow-300 font-bold hover:underline"
+                  className="text-yellow-500 font-bold hover:underline"
                 >
                   See More&gt;&gt;&gt;
                 </a>
