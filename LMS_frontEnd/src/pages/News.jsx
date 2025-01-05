@@ -1,20 +1,36 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 const News = () => {
+  // Motion variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
     <div>
       {/* News Header */}
-      <div className="bg-primary py-12">
+      <motion.div
+        className="bg-primary py-12"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
         <h1 className="font-kumbh text-4xl text-center text-yellow-500 uppercase">News</h1>
-      </div>
+      </motion.div>
 
       {/* News Cards */}
       <div className="flex flex-col items-center justify-center m-12 space-y-6">
         {/* Single News Card */}
         {[...Array(3)].map((_, index) => (
-          <div
+          <motion.div
             key={index}
             className="w-full lg:w-3/4 bg-yellow-500 rounded-lg shadow-lg overflow-hidden"
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: index * 0.2 }}
           >
             {/* Title Section */}
             <div className="p-4">
@@ -47,7 +63,7 @@ const News = () => {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>
