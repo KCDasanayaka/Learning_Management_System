@@ -17,7 +17,9 @@ const News = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <h1 className="font-kumbh text-4xl text-center text-yellow-500 uppercase">News</h1>
+        <div className='bg-red-900 p-4 mt-14'>
+        <h1 className="font-kumbh text-5xl text-center text-yellow-500 uppercase font-bold">News</h1>
+        </div>
       </motion.div>
 
       {/* News Cards */}
