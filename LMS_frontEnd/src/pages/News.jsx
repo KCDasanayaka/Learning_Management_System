@@ -150,7 +150,50 @@ const News = () => {
         </motion.div>
         
         ))}
+        {[3].map((_, index)=> (
+          <motion.div
+          key={index}
+          className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+          variants={cardVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.5, delay: index * 0.2 }}
+        >
+          {/* Title Section */}
+          <div className="p-4">
+            <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+              Parent-Teacher Meeting – 2024 Schedule
+            </h2>
+          </div>
         
+          {/* Description Section */}
+          <div className="bg-red-custom text-white px-6 py-4">
+            <p className="font-kumbh text-lg leading-relaxed">
+              The Parent-Teacher Meeting for the year 2024 is scheduled for the 20th of January. This 
+              meeting is an important opportunity for parents to discuss the progress of their children 
+              and plan for the upcoming year.
+              <br /><br />
+              <strong>Agenda:</strong>
+              <br />
+              – Discuss student progress and any areas needing attention.
+              <br />
+              – Upcoming educational programs and school events for 2024.
+              <br />
+              – Special focus on student mental health and well-being.
+            </p>
+            {/* See More Link */}
+            <div className="mt-4 text-right">
+              <a
+                href="#"
+                className="text-yellow-custom font-bold hover:underline"
+              >
+                See More&gt;&gt;&gt;
+              </a>
+            </div>
+          </div>
+        </motion.div>
+        
+        ))}
       </div>
     </div>
   );
