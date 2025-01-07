@@ -36,7 +36,7 @@ const Academic = () => {
               <li>
                 <a
                   href="/academics"
-                  className="underline decoration-yellow-500 decoration-2"
+                  className="underline decoration-yellow-custom decoration-2"
                 >
                   Academics
                 </a>
@@ -47,7 +47,7 @@ const Academic = () => {
                 </a>
               </li>
               <li>
-                <button className="bg-yellow-500 text-maroon px-4 py-2 rounded hover:bg-yellow-600">
+                <button className="bg-yellow-custom text-maroon px-4 py-2 rounded hover:bg-yellow-600">
                   Contact Us
                 </button>
               </li>
@@ -71,7 +71,7 @@ const Academic = () => {
           {Array.from({ length: 12 }, (_, i) => (
             <button
               key={i}
-              className="bg-yellow-500 text-maroon px-6 py-3 font-semibold rounded hover:bg-yellow-600 transition"
+              className="bg-yellow-custom text-maroon px-6 py-3 font-semibold rounded hover:bg-yellow-600 transition"
             >
               Grade {i + 1}
             </button>
@@ -82,7 +82,7 @@ const Academic = () => {
         {[1, 2, 3].map((grade) => (
           <div
             key={grade}
-            className="bg-yellow-500 mb-6 rounded-lg shadow-lg overflow-hidden"
+            className="bg-yellow-custom mb-6 rounded-lg shadow-lg overflow-hidden"
           >
             <div className="bg-maroon text-white px-6 py-4">
               <h3 className="text-2xl font-bold">Grade {grade}</h3>
@@ -108,16 +108,16 @@ const Academic = () => {
             © 2024 R/Pathagama Maha Vidyalaya. All Rights Reserved.
           </p>
           <div className="flex justify-center space-x-4 mt-2">
-            <a href="#" className="hover:text-yellow-500">
+            <a href="#" className="hover:text-yellow-custom">
               <i className="fab fa-facebook"></i>
             </a>
-            <a href="#" className="hover:text-yellow-500">
+            <a href="#" className="hover:text-yellow-custom">
               <i className="fab fa-linkedin"></i>
             </a>
-            <a href="#" className="hover:text-yellow-500">
+            <a href="#" className="hover:text-yellow-custom">
               <i className="fab fa-instagram"></i>
             </a>
-            <a href="#" className="hover:text-yellow-500">
+            <a href="#" className="hover:text-yellow-custom">
               <i className="fab fa-twitter"></i>
             </a>
           </div>

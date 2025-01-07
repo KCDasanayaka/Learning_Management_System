@@ -7,6 +7,14 @@ export default {
         inter: ["Inter", "sans-serif"],
         kumbh: ['"Kumbh Sans"', 'sans-serif'],
       },
+      backgroundColor: {
+        'red-custom': '#4E0A0A',
+        'yellow-custom': '#F9C524',
+      },
+      colors: {
+        'yellow-custom': '#F9C524',
+        'red-custom': '#4E0A0A',
+      },
     },
   },
   plugins: [

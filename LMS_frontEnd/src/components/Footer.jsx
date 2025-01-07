@@ -16,7 +16,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Home
                 </a>
@@ -24,7 +24,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/about"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   About
                 </a>
@@ -32,7 +32,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/academics"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Academics
                 </a>
@@ -40,7 +40,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/news"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   News
                 </a>
@@ -48,7 +48,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/gallery"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Gallery
                 </a>
@@ -56,7 +56,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/contact"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Contact Us
                 </a>

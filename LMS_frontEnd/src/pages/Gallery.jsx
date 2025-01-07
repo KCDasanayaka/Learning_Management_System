@@ -5,7 +5,7 @@ const Gallery = () => {
     <div>
       {/* Gallery Header */}
       <div className="bg-primary py-12">
-        <h1 className="font-kumbh text-4xl text-center text-yellow-500 uppercase">Gallery</h1>
+        <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase">Gallery</h1>
       </div>
 
       {/* Gallery Cards */}
@@ -14,7 +14,7 @@ const Gallery = () => {
         {[...Array(3)].map((_, index) => (
           <div
             key={index}
-            className="w-full lg:w-3/4 bg-yellow-500 rounded-lg shadow-lg overflow-hidden"
+            className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
           >
             {/* Title Section */}
             <div className="p-4">

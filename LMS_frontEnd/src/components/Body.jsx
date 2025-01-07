@@ -42,7 +42,7 @@ const Body = () => {
                     </p>
                     <a
                         href="/lms"
-                        className="bg-white text-yellow-600 px-6 py-3 rounded shadow hover:bg-red-900 hover:text-white"
+                        className="bg-white text-yellow-600 px-6 py-3 rounded shadow hover:bg-red-custom hover:text-white"
                     >
                         Access the LMS &gt;&gt;&gt;
                     </a>

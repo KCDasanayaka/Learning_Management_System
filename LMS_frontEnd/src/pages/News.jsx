@@ -17,18 +17,17 @@ const News = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='bg-red-900 p-4 mt-14'>
-        <h1 className="font-kumbh text-5xl text-center text-yellow-500 uppercase font-bold">News</h1>
+        <div className='bg-red-custom p-4 mt-14'>
+        <h1 className="font-kumbh text-5xl text-center text-yellow-custom uppercase font-bold">News</h1>
         </div>
       </motion.div>
 
       {/* News Cards */}
       <div className="flex flex-col items-center justify-center m-12 space-y-6">
-        {/* Single News Card */}
-        {[...Array(3)].map((_, index) => (
+        {[1].map((_, index) => (
           <motion.div
             key={index}
-            className="w-full lg:w-3/4 bg-yellow-500 rounded-lg shadow-lg overflow-hidden"
+            className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
@@ -36,13 +35,13 @@ const News = () => {
           >
             {/* Title Section */}
             <div className="p-4">
-              <h2 className="font-kumbh text-2xl text-center font-bold text-black">
+              <h2 className="font-kumbh text-2xl text-center font-bold text-white">
                 Admission to A/L Section – Online Application 2024
               </h2>
             </div>
 
             {/* Description Section */}
-            <div className="bg-maroon-500 text-white px-6 py-4">
+            <div className="bg-red-custom text-white px-6 py-4">
               <p className="font-kumbh text-lg leading-relaxed">
                 This application is for both students of Royal College as well as External
                 students who wish to pursue their A/L education at R/Pathagama Maha Vidyalaya.
@@ -59,7 +58,49 @@ const News = () => {
               <div className="mt-4 text-right">
                 <a
                   href="#"
-                  className="text-yellow-500 font-bold hover:underline"
+                  className="text-yellow-custom font-bold hover:underline"
+                >
+                  See More&gt;&gt;&gt;
+                </a>
+              </div>
+            </div>
+            
+          </motion.div>
+        ))}
+        {[2].map((_, index) => (
+          <motion.div
+            key={index}
+            className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+            variants={cardVariants}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            {/* Title Section */}
+            <div className="p-4">
+              <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+                GCE O/L Examination 2024 – Online Application Now Open
+              </h2>
+            </div>
+
+            {/* Description Section */}
+            <div className="bg-red-custom text-white px-6 py-4">
+              <p className="font-kumbh text-lg leading-relaxed">
+                The GCE Ordinary Level Examination 2024 online application is now open. All students
+                wishing to sit for the O/L exam must complete their registration by the end of this month. 
+                Please ensure that you meet the following general requirements:
+                <br /><br />
+                <strong>Requirements:</strong>
+                <br />
+                – At least 5 passes in the GCE O/L 2023 or equivalent examination.
+                <br />
+                – Registration and payment must be done through the official online portal.
+              </p>
+              {/* See More Link */}
+              <div className="mt-4 text-right">
+                <a
+                  href="#"
+                  className="text-yellow-custom font-bold hover:underline"
                 >
                   See More&gt;&gt;&gt;
                 </a>
@@ -67,6 +108,49 @@ const News = () => {
             </div>
           </motion.div>
         ))}
+        {[3].map((_, index)=> (
+          <motion.div
+          key={index}
+          className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+          variants={cardVariants}
+          initial="hidden"
+          animate="visible"
+          transition={{ duration: 0.5, delay: index * 0.2 }}
+        >
+          {/* Title Section */}
+          <div className="p-4">
+            <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+              Grade 5 Scholarship Examination 2024 – Application Information
+            </h2>
+          </div>
+        
+          {/* Description Section */}
+          <div className="bg-red-custom text-white px-6 py-4">
+            <p className="font-kumbh text-lg leading-relaxed">
+              The application process for the Grade 5 Scholarship Examination 2024 has begun. This 
+              exam provides students with the opportunity to receive government scholarships to continue
+              their education at leading schools across Sri Lanka.
+              <br /><br />
+              <strong>Eligibility:</strong>
+              <br />
+              – Applicants must be in Grade 5 at a recognized school in Sri Lanka.
+              <br />
+              – A valid birth certificate and school records are required for registration.
+            </p>
+            {/* See More Link */}
+            <div className="mt-4 text-right">
+              <a
+                href="#"
+                className="text-yellow-custom font-bold hover:underline"
+              >
+                See More&gt;&gt;&gt;
+              </a>
+            </div>
+          </div>
+        </motion.div>
+        
+        ))}
+        
       </div>
     </div>
   );
