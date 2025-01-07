@@ -15,6 +15,9 @@ export default {
         'yellow-custom': '#F9C524',
         'red-custom': '#4E0A0A',
       },
+      fontWeight: {
+        'custom-custom': '550',
+      },
     },
   },
   plugins: [

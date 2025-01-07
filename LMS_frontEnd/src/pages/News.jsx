@@ -17,17 +17,17 @@ const News = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className='bg-red-custom p-4 mt-14'>
-        <h1 className="font-kumbh text-5xl text-center text-yellow-custom uppercase font-bold">News</h1>
+        <div className='bg-red-custom p-6 mt-12 sm:mt-16 md:mt-14 lg:mt-14'>
+        <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">News</h1>
         </div>
       </motion.div>
 
       {/* News Cards */}
-      <div className="flex flex-col items-center justify-center m-12 space-y-6">
+      <div className="flex flex-col items-center justify-center m-12 mt-4 space-y-10">
         {[1].map((_, index) => (
           <motion.div
             key={index}
-            className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+            className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
@@ -35,7 +35,7 @@ const News = () => {
           >
             {/* Title Section */}
             <div className="p-4">
-              <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+              <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
                 Admission to A/L Section – Online Application 2024
               </h2>
             </div>
@@ -55,7 +55,7 @@ const News = () => {
                 One of the credits should be for a relevant subject offered at the Advanced Level.
               </p>
               {/* See More Link */}
-              <div className="mt-4 text-right">
+              <div className="mb-2 text-right text-2xl font-semibold">
                 <a
                   href="#"
                   className="text-yellow-custom font-bold hover:underline"
@@ -70,7 +70,7 @@ const News = () => {
         {[2].map((_, index) => (
           <motion.div
             key={index}
-            className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+            className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
             variants={cardVariants}
             initial="hidden"
             animate="visible"
@@ -78,7 +78,7 @@ const News = () => {
           >
             {/* Title Section */}
             <div className="p-4">
-              <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+              <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
                 GCE O/L Examination 2024 – Online Application Now Open
               </h2>
             </div>
@@ -97,7 +97,7 @@ const News = () => {
                 – Registration and payment must be done through the official online portal.
               </p>
               {/* See More Link */}
-              <div className="mt-4 text-right">
+              <div className="mb-2 text-right text-2xl font-semibold">
                 <a
                   href="#"
                   className="text-yellow-custom font-bold hover:underline"
@@ -111,7 +111,7 @@ const News = () => {
         {[3].map((_, index)=> (
           <motion.div
           key={index}
-          className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+          className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
@@ -119,7 +119,7 @@ const News = () => {
         >
           {/* Title Section */}
           <div className="p-4">
-            <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+            <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
               Grade 5 Scholarship Examination 2024 – Application Information
             </h2>
           </div>
@@ -138,7 +138,7 @@ const News = () => {
               – A valid birth certificate and school records are required for registration.
             </p>
             {/* See More Link */}
-            <div className="mt-4 text-right">
+            <div className="mb-2 text-right text-2xl font-semibold">
               <a
                 href="#"
                 className="text-yellow-custom font-bold hover:underline"
@@ -153,7 +153,7 @@ const News = () => {
         {[3].map((_, index)=> (
           <motion.div
           key={index}
-          className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
+          className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
           variants={cardVariants}
           initial="hidden"
           animate="visible"
@@ -161,7 +161,7 @@ const News = () => {
         >
           {/* Title Section */}
           <div className="p-4">
-            <h2 className="font-kumbh text-2xl text-center font-bold text-white">
+            <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
               Parent-Teacher Meeting – 2024 Schedule
             </h2>
           </div>
@@ -182,7 +182,7 @@ const News = () => {
               – Special focus on student mental health and well-being.
             </p>
             {/* See More Link */}
-            <div className="mt-4 text-right">
+            <div className="mb-2 text-right text-2xl font-semibold">
               <a
                 href="#"
                 className="text-yellow-custom font-bold hover:underline"
