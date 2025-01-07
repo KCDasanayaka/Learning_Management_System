@@ -1,8 +1,9 @@
-import "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import image from "../assets/SchoolLogos/image1.png";
 import Logo from "../assets/SchoolLogos/School_logo.png";
+import sin_text from "../assets/SchoolLogos/sinhala_Text.png";
 import PrincipalCards from "../components/PrincipalCard";
 
 
@@ -19,10 +20,24 @@ const About = () => {
     });
 
     return (
-        <div className="font-inter mt-16 bg-gray-100">
+        <div className="font-inter bg-gray-100">
+
+            <motion.div
+                    className="bg-primary py-12"
+                    initial={{ opacity: 0, y: -50 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="bg-red-custom p-6 mt-12 sm:mt-16 md:mt-16 lg:mt-14' ">
+                        <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">
+                            ABOUT US
+                        </h1>
+                    </div>
+
+                  </motion.div>
 
             {/* Mission Section Info */}
-            <section className="py-12">
+            <section className="py-6">
                 <motion.div
                     ref={infoRef} 
                     className="container mx-auto text-center px-4 sm:px-6 lg:px-8"
@@ -31,24 +46,33 @@ const About = () => {
                     transition={{ duration: 0.8 }}
                 >
     
-                    <div className="mb-9">
-                        <img
-                            src={Logo}
-                            alt="School Logo"
-                            className="mx-auto w-20 sm:w-24 md:w-28 lg:w-36 object-contain" 
+                    <div className="mb-6">
+                    <img
+                        src={Logo}
+                        alt="School Logo"
+                        className="mx-auto w-40 sm:w-48 md:w-56 lg:w-72 object-contain" 
                         />
+                    <img
+                        src={sin_text}
+                        alt="School Logo"
+                        className="mx-auto w-64 sm:w-72 md:w-80 lg:w-96 object-contain mt-6"
+                        />
+
+
+
                     </div>
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 mt-8">Mission</h2>
-                    <p className="text-gray-700 max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
-                        Welcome to R/Pathagama Maha Vidyalaya, where we nurture young minds
-                        and guide them toward a brighter future with our dedicated faculty
-                        and excellent facilities.
-                    </p>
+                    <div>
+                        <h2 className="font-kumbh text-3xl sm:text-4xl font-bold mb-4 mt-12 uppercase">Our Mission</h2>
+                        <p className="font-sans text-gray-500 font-normal text-2xl max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                        Ensuring a culturally diverse environment for students from all over the country, to enable them to become active learners and well rounded citizens who contribute positively to the world.
+                        </p>
+                    </div>
+                        
                 </motion.div>
             </section>
 
             {/* Vision Section */}
-            <section className="py-6">
+            <section className="py-2">
                 <motion.div
                     ref={aboutRef} 
                     className="container mx-auto text-center px-4 sm:px-6 lg:px-8"
@@ -56,18 +80,15 @@ const About = () => {
                     animate={aboutInView ? { opacity: 1, y: 0 } : {}} 
                     transition={{ duration: 0.9 }}
                 >
-                    <h2 className="text-3xl sm:text-4xl font-bold mb-4">Vision</h2>
-                    <p className="text-gray-700 max-w-3xl mx-auto px-4 sm:px-6 md:px-8">
-                        R/Pathagama Maha Vidyalaya, established in 1891, stands as a pillar
-                        of Sri Lankan education. With dedicated faculty and a serene
-                        environment, we provide well-rounded education that fosters growth
-                        and prepares students for success in the modern world.
+                    <h2 className="text-3xl sm:text-4xl font-bold mb-4 uppercase font-kumbh">Vision</h2>
+                    <p className="font-sans text-gray-500 font-normal text-2xl max-w-4xl mx-auto px-4 sm:px-6 md:px-8">
+                    Providing each and every student with a unique learning environment to grow and excel from the time he begins his educational journey while offering a vibrant and enjoyable educational opportunity to face lifelong challenges.
                     </p>
                 </motion.div>
             </section>
 
             {/* History Section */}
-            <div className="mt-9">
+            <div className="py-6 mt-9">
                 <section className="relative py-12 text-white">
                     <div
                         className="absolute inset-0 bg-cover bg-center"
