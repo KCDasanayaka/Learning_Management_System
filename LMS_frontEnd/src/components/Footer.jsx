@@ -3,7 +3,7 @@ import School_logo from "../assets/SchoolLogos/School_white_logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-red-900 text-white py-8 font-inter">
+    <footer className="bg-red-custom text-white py-8 font-inter">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-8">
           <img
