@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from 'framer-motion';
+import point from '../assets/Point.png';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 50 },
@@ -79,33 +80,324 @@ const Academic = () => {
               {/* Title Section */}
               <div className="p-4">
                 <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
-                  Admission to A/L Section – Online Application 2024
+                  Grade-1
                 </h2>
               </div>
 
               {/* Description Section */}
-              <div className="bg-red-custom text-white px-6 py-4">
-                <p className="font-kumbh text-lg leading-relaxed">
-                  This application is for both students of Royal College as well as External
-                  students who wish to pursue their A/L education at R/Pathagama Maha Vidyalaya.
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
                   <br />
-                  <br />
-                  <strong>Dear students,</strong>
-                  <br />
-                  Please note the requirements for admission to Advanced Level Classes:
-                  General Requirements: At least SIX passes with a minimum of THREE credits
-                  including Sinhala and Mathematics at the GCE (O/L) – 2024 December Examination.
-                  One of the credits should be for a relevant subject offered at the Advanced Level.
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
                 </p>
-                {/* See More Link */}
-                <div className="mb-2 text-right text-2xl font-semibold">
-                  <a
-                    href="#"
-                    className="text-yellow-custom font-bold hover:underline"
-                  >
-                    See More&gt;&gt;&gt;
-                  </a>
-                </div>
+              </div>
+            </motion.div>
+          ))}
+          {[2].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-2
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[3].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-3
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[4].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-4
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[5].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-5
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[6].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-6
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[7].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-7
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[8].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-8
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
+              </div>
+            </motion.div>
+          ))}
+          {[9].map((_, index) => (
+            <motion.div
+              key={index}
+              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              variants={cardVariants}
+              initial="hidden"
+              animate="visible"
+              transition={{ duration: 0.5, delay: index * 0.2 }}
+            >
+              {/* Title Section */}
+              <div className="p-4">
+                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
+                  Grade-9
+                </h2>
+              </div>
+
+              {/* Description Section */}
+              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
+                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
+                  <strong className="text-xl-custom">Sectional Head - Rev. Hanguranketha Kumarawansha Thero</strong>
+                  <br />
+                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - A</strong> - Mrs. L.D. Tennakoon
+                    </li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - B</strong> - Mrs. L.A.A. Dilinu Fernando</li>
+                    <li className="flex items-center">
+                      <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
+                      <strong className="mr-2">Grade 1 - C</strong> - Mrs. R.M.D.R. Ranasinghe</li>
+                  </ul>
+                </p>
               </div>
             </motion.div>
           ))}

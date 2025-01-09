@@ -23,8 +23,10 @@ export default {
       },
       height: {
         'custom': '3.5px',
+      },
+      fontSize: {
+        'xl-custom': '24px',
       }
-
     },
   },
   plugins: [
@@ -36,9 +38,14 @@ export default {
         '.font-yopq-300': {
           'font-variation-settings': '"YOPQ" 300',
         },
+        '.list-point-image': {
+          'list-style-image': 'url(./assets/Point.png)',
+          'background-size': '2px 2px',  // Set the width and height of the bullet image here
+          'background-repeat': 'no-repeat',
+          'background-position': 'left center',
+        },
         // Add more custom utilities here as needed
       });
     },
   ],
 };
-
