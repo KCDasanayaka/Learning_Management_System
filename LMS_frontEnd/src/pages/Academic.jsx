@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from 'framer-motion';
 
+
 const Academic = () => {
   return (
     <div className="min-h-screen flex flex-col bg-yellow-100">
