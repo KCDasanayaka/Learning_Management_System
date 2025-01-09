@@ -1,128 +1,76 @@
 import React from "react";
+import { motion } from 'framer-motion';
 
 const Academic = () => {
   return (
-    <div className="min-h-screen bg-yellow-100">
+    <div className="min-h-screen flex flex-col bg-yellow-100">
       {/* Header Section */}
-      <header className="bg-maroon text-white py-4 shadow-lg">
-        <div className="container mx-auto flex justify-between items-center">
-          {/* Logo */}
-          <div className="flex items-center">
-            <img
-              src="/path-to-logo.png"
-              alt="School Logo"
-              className="w-10 h-10 mr-2"
-            />
-            <h1 className="text-xl font-bold">R/Pathagama Maha Vidyalaya</h1>
-          </div>
-          {/* Navigation */}
-          <nav>
-            <ul className="flex space-x-6">
-              <li>
-                <a href="/home" className="hover:underline">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="/about-us" className="hover:underline">
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a href="/news" className="hover:underline">
-                  News
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/academics"
-                  className="underline decoration-yellow-custom decoration-2"
-                >
-                  Academics
-                </a>
-              </li>
-              <li>
-                <a href="/gallery" className="hover:underline">
-                  Gallery
-                </a>
-              </li>
-              <li>
-                <button className="bg-yellow-custom text-maroon px-4 py-2 rounded hover:bg-yellow-600">
-                  Contact Us
-                </button>
-              </li>
-            </ul>
-          </nav>
+      <motion.div
+        className="bg-primary py-12"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="bg-red-custom p-6 mt-12 sm:mt-16 md:mt-16 lg:mt-14">
+          <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">
+            Academic
+          </h1>
         </div>
-      </header>
+      </motion.div>
 
-      {/* Academic Section */}
-      <main className="container mx-auto py-8 px-4">
-        {/* Academic Title */}
-        <h1 className="text-maroon text-4xl font-bold text-center mb-8">
-          ACADEMIC
-        </h1>
-        <h2 className="text-black text-2xl font-semibold text-center mb-6">
-          GRADES
+      {/* Main Content Section */}
+      <motion.div className="flex-1 px-4 sm:px-6 md:px-8 py-6">
+        <h2 className="font-kumbh text-3xl sm:text-4xl font-bold uppercase text-center">
+          Grades
         </h2>
-
-        {/* Grade Buttons */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
-          {Array.from({ length: 12 }, (_, i) => (
-            <button
-              key={i}
-              className="bg-yellow-custom text-maroon px-6 py-3 font-semibold rounded hover:bg-yellow-600 transition"
-            >
-              Grade {i + 1}
+        <div className="mt-8 flex flex-col justify-center align-middle">
+          <div className="flex flex-wrap gap-6 justify-center text-1xl font-semibold">
+              {/* Grade Cards */}
+            <button className="btn-primary">
+              Grade 1
             </button>
-          ))}
-        </div>
-
-        {/* Grade Details */}
-        {[1, 2, 3].map((grade) => (
-          <div
-            key={grade}
-            className="bg-yellow-custom mb-6 rounded-lg shadow-lg overflow-hidden"
-          >
-            <div className="bg-maroon text-white px-6 py-4">
-              <h3 className="text-2xl font-bold">Grade {grade}</h3>
-            </div>
-            <div className="bg-yellow-100 px-6 py-4">
-              <p className="font-semibold mb-4">
-                Sectional Head – Rev. Hanguranketha Kumarawansha Thero
-              </p>
-              <ul className="list-disc pl-6">
-                <li>Grade {grade}-A – Mrs. L.D. Tennakoon</li>
-                <li>Grade {grade}-B – Mrs. I.A.A. Dilinu Fernando</li>
-                <li>Grade {grade}-C – Mrs. R.M.D.R. Ranasinghe</li>
-              </ul>
-            </div>
+            <button className="btn-primary">
+              Grade 2
+            </button>
+            <button className="btn-primary">
+              Grade 3
+            </button>
+            <button className="btn-primary">
+              Grade 4
+            </button>
+            <button className="btn-primary">
+              Grade 5
+            </button>
+            <button className="btn-primary">
+              Grade 6
+            </button>
+            
           </div>
-        ))}
-      </main>
-
-      {/* Footer */}
-      <footer className="bg-maroon text-white py-6">
-        <div className="container mx-auto text-center">
-          <p className="text-sm">
-            © 2024 R/Pathagama Maha Vidyalaya. All Rights Reserved.
-          </p>
-          <div className="flex justify-center space-x-4 mt-2">
-            <a href="#" className="hover:text-yellow-custom">
-              <i className="fab fa-facebook"></i>
-            </a>
-            <a href="#" className="hover:text-yellow-custom">
-              <i className="fab fa-linkedin"></i>
-            </a>
-            <a href="#" className="hover:text-yellow-custom">
-              <i className="fab fa-instagram"></i>
-            </a>
-            <a href="#" className="hover:text-yellow-custom">
-              <i className="fab fa-twitter"></i>
-            </a>
+          <div className="flex flex-wrap gap-6 justify-center text-1xl font-semibold mt-6">
+              {/* Grade Cards */}
+            <button className="btn-primary">
+              Grade 7
+            </button>
+            <button className="btn-primary">
+              Grade 8
+            </button>
+            <button className="btn-primary">
+              Grade 9
+            </button>
+            <button className="btn-primary">
+              Grade 10
+            </button>
+            <button className="btn-primary">
+              Grade 11
+            </button>
+            <button className="btn-primary">
+              Grade 12
+            </button>
+            
           </div>
         </div>
-      </footer>
+      </motion.div>
+
     </div>
   );
 };
