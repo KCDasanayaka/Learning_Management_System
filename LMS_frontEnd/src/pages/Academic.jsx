@@ -7,6 +7,7 @@ const cardVariants = {
   visible: { opacity: 1, y: 0 },
 };
 
+
 const Academic = () => {
   return (
     <div className="min-h-screen flex flex-col bg-white">
