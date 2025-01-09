@@ -1,57 +1,55 @@
-import React from 'react'
+import React from 'react';
+import { motion } from 'framer-motion';
+import image from "../assets/SchoolLogos/image1.png"
 
 const Gallery = () => {
   return (
-    <div>
-      {/* Gallery Header */}
-      <div className="bg-primary py-12">
-        <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase">Gallery</h1>
-      </div>
+    <div className="min-h-screen flex flex-col bg-white">
+      {/* Header Section */}
+      <motion.div
+        className="bg-primary py-12"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        role="banner"
+      >
+        <div className="bg-red-custom p-6 mt-12 sm:mt-16 md:mt-16 lg:mt-14">
+          <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">
+            Gallery
+          </h1>
+        </div>
+      </motion.div>
+      <motion.div>
+        <div>
+          {/* box section */}
+          <div className=''>
+            <div className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `url(${image})` }}></div>
+            {/* Yellow Layer */}
+            <div className="absolute inset-0 bg-yellow-600 opacity-80"></div>
 
-      {/* Gallery Cards */}
-      <div className="flex flex-col items-center justify-center m-12 space-y-6">
-        {/* Single Gallery Card */}
-        {[...Array(3)].map((_, index) => (
-          <div
-            key={index}
-            className="w-full lg:w-3/4 bg-yellow-custom rounded-lg shadow-lg overflow-hidden"
-          >
-            {/* Title Section */}
-            <div className="p-4">
-              <h2 className="font-kumbh text-2xl text-center font-bold text-black">
-                Admission to A/L Section – Online Application 2024
-              </h2>
-            </div>
-
-            {/* Description Section */}
-            <div className="bg-maroon-500 text-white px-6 py-4">
-              <p className="font-kumbh text-lg leading-relaxed">
-                This application is for both students of Royal College as well as External
-                students who wish to pursue their A/L education at R/Pathagama Maha Vidyalaya.
-                <br />
-                <br />
-                <strong>Dear students,</strong>
-                <br />
-                Please note the requirements for admission to Advanced Level Classes:
-                General Requirements: At least SIX passes with a minimum of THREE credits
-                including Sinhala and Mathematics at the GCE (O/L) – 2024 December Examination.
-                One of the credits should be for a relevant subject offered at the Advanced Level.
-              </p>
-              {/* See More Link */}
-              <div className="mt-4 text-right">
-                <a
-                  href="#"
-                  className="text-yellow-300 font-bold hover:underline"
+                <motion.div
+                    className="relative container mx-auto text-center px-4 sm:px-6 lg:px-8"
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.8 }}
                 >
-                  See More&gt;&gt;&gt;
-                </a>
-              </div>
-            </div>
+                    <h2 className="text-3xl font-bold mb-4">Learning Online</h2>
+                    <p className="max-w-2xl mx-auto mb-6">
+                        The Learning Management System has evolved into more than just a medium for e-learning. It fosters a collaborative environment where teachers and students can communicate effectively, streamlining the educational process.
+                    </p>
+                    <a
+                        href="/lms"
+                        className="bg-white text-yellow-600 px-6 py-3 rounded shadow hover:bg-red-custom hover:text-white"
+                    >
+                        Access the LMS &gt;&gt;&gt;
+                    </a>
+                </motion.div>
           </div>
-        ))}
-      </div>
+        </div>
+      </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default Gallery
+export default Gallery;
