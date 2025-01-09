@@ -5,29 +5,13 @@ import School_logo from "../assets/SchoolLogos/School_white_logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [activeLink, setActiveLink] = useState(""); // State to track the active link
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  const handleLinkClick = (linkName) => {
-    setActiveLink(linkName); // Set the active link when a menu item is clicked
-    if (isMenuOpen) setIsMenuOpen(false); // Close the menu on mobile when a link is clicked
-  };
-
-  // Links for the menu
-  const menuLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Us", path: "/about" },
-    { name: "Academics", path: "/academics" },
-    { name: "News", path: "/news" },
-    { name: "Gallery", path: "/gallery" },
-    { name: "Contact Us", path: "/contact" }
-  ];
-
   return (
-    <>
+     <>
       <header className="bg-red-custom text-white py-4 fixed w-full top-0 left-0 z-50 font-inter">
         <div className="container mx-auto flex justify-between items-center px-4">
           <div className="flex items-center">
@@ -41,22 +25,54 @@ const Header = () => {
           <nav className="flex items-center">
             {/* Desktop Menu */}
             <ul className="hidden sm:flex space-x-6">
-              {menuLinks.map(({ name, path }) => (
-                <li key={name}>
-                  <Link
-                    to={path}
-                    className={`rounded transition relative ${
-                      activeLink === name ? "text-yellow-custom" : "hover:text-yellow-custom"
-                    }`}
-                    onClick={() => handleLinkClick(name)}
-                  >
-                    {name}
-                    {activeLink === name && (
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-custom"></div>
-                    )}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/"
+                  className="rounded transition hover:text-yellow-custom"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="rounded transition hover:text-yellow-custom "
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/academic"
+                  className="rounded transition hover:text-yellow-custom "
+                >
+                  Academics
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/news"
+                  className="rounded transition hover:text-yellow-custom "
+                >
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="rounded transition hover:text-yellow-custom "
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/contact"
+                  className="rounded transition hover:text-yellow-custom focus:outline-none focus:ring-1 focus:ring-yellow-custom focus:ring-offset-2"
+                >
+                  Contact Us
+                </Link>
+              </li>
             </ul>
 
             {/* Mobile Menu Button */}
@@ -65,7 +81,7 @@ const Header = () => {
                 className="cursor-pointer text-white text-3xl"
                 onClick={toggleMenu}
               >
-                {isMenuOpen ? "✖" : "☰"}
+                {isMenuOpen ? "" : "☰"}
               </label>
             </div>
           </nav>
@@ -92,33 +108,63 @@ const Header = () => {
           {/* Menu Container */}
           <div className="relative text-white rounded-lg p-6 w-full max-w-sm h-screen flex flex-col justify-center items-center">
             <ul className="flex flex-col items-center space-y-8 text-lg">
-              {menuLinks.map(({ name, path }) => (
-                <li key={name}>
-                  <Link
-                    to={path}
-                    className={`hover:text-yellow-custom relative ${
-                      activeLink === name ? "text-yellow-custom" : ""
-                    }`}
-                    onClick={() => handleLinkClick(name)}
-                  >
-                    {name}
-                    {activeLink === name && (
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-yellow-custom"></div>
-                    )}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link
+                  to="/"
+                  className="hover:text-yellow-custom"
+                  onClick={toggleMenu}
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/about"
+                  className="hover:text-yellow-custom"
+                  onClick={toggleMenu}
+                >
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/academics"
+                  className="hover:text-yellow-custom"
+                  onClick={toggleMenu}
+                >
+                  Academics
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/news"
+                  className="hover:text-yellow-custom"
+                  onClick={toggleMenu}
+                >
+                  News
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/gallery"
+                  className="hover:text-yellow-custom"
+                  onClick={toggleMenu}
+                >
+                  Gallery
+                </Link>
+              </li>
             </ul>
             <div className="absolute bottom-8">
               <Link
                 to="/contact"
                 className="hover:text-yellow-custom text-lg"
-                onClick={() => handleLinkClick("Contact Us")}
+                onClick={toggleMenu}
               >
                 Contact Us
               </Link>
             </div>
           </div>
+
         </div>
       </main>
     </>
