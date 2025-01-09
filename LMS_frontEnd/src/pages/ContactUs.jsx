@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const ContactUs = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-yellow-100">
+    <div className="min-h-screen flex flex-col bg-white">
       <motion.div
         className="bg-primary py-12"
         initial={{ opacity: 0, y: -50 }}

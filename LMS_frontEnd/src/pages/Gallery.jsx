@@ -1,6 +1,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import image from "../assets/SchoolLogos/image1.png"
+import event1Image from "../assets/Event1.jpg";
+import event2Image from "../assets/Event2.jpeg";
+import event3Image from "../assets/Event3.jpg";
+
+const callouts = [
+  {
+    name: '2025/01/09',
+    description: 'Description for event 1',
+    imageSrc: event1Image,
+    imageAlt: 'Image 1',
+    href: '#'
+  },
+  {
+    name: 'Event 2',
+    description: 'Description for event 2',
+    imageSrc: event2Image,
+    imageAlt: 'Image 2',
+    href: '#'
+  },
+  {
+    name: 'Event 3',
+    description: 'Description for event 3',
+    imageSrc: event3Image,
+    imageAlt: 'Image 3',
+    href: '#'
+  }
+];
 
 const Gallery = () => {
   return (
@@ -19,32 +45,58 @@ const Gallery = () => {
           </h1>
         </div>
       </motion.div>
-      <motion.div>
-        <div>
-          {/* box section */}
-          <div className=''>
-            <div className="absolute inset-0 bg-cover bg-center"
-              style={{ backgroundImage: `url(${image})` }}></div>
-            {/* Yellow Layer */}
-            <div className="absolute inset-0 bg-yellow-600 opacity-80"></div>
 
+      {/* Gallery Section */}
+      <motion.div
+        className="bg-white"
+        initial="hidden"
+        animate="visible"
+        variants={{
+          hidden: { opacity: 0, scale: 0.8 },
+          visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
+        }}
+      >
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-2xl py-4 sm:py-6 lg:max-w-none lg:py-6">
+            <motion.div
+              className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={{
+                hidden: { opacity: 0, y: 50 },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: { staggerChildren: 0.2 }
+                }
+              }}
+            >
+              {callouts.map((callout) => (
                 <motion.div
-                    className="relative container mx-auto text-center px-4 sm:px-6 lg:px-8"
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.8 }}
+                  key={callout.name}
+                  className="group relative"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                 >
-                    <h2 className="text-3xl font-bold mb-4">Learning Online</h2>
-                    <p className="max-w-2xl mx-auto mb-6">
-                        The Learning Management System has evolved into more than just a medium for e-learning. It fosters a collaborative environment where teachers and students can communicate effectively, streamlining the educational process.
-                    </p>
-                    <a
-                        href="/lms"
-                        className="bg-white text-yellow-600 px-6 py-3 rounded shadow hover:bg-red-custom hover:text-white"
-                    >
-                        Access the LMS &gt;&gt;&gt;
+                  <motion.img
+                    alt={callout.imageAlt}
+                    src={callout.imageSrc}
+                    className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  />
+                  <h3 className="mt-6 text-sm text-gray-500">
+                    <a href={callout.href}>
+                      <span className="absolute inset-0" />
+                      {callout.name}
                     </a>
+                  </h3>
+                  <p className="text-base font-semibold text-gray-900">{callout.description}</p>
                 </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </motion.div>
