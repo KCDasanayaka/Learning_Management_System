@@ -18,6 +18,13 @@ export default {
       fontWeight: {
         'custom-custom': '550',
       },
+      width: {
+        'custom': '80%',
+      },
+      height: {
+        'custom': '3.5px',
+      }
+
     },
   },
   plugins: [
