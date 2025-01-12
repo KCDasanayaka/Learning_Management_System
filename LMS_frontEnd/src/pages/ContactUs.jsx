@@ -180,15 +180,10 @@ const ContactForm = () => {
         placeholder="Your Message"
         rows="4"
       />
-      <motion.div
-        className="flex items-center justify-end"
-        whileHover={{ scale: 1.1 }}
-        transition={{ duration: 0.3 }}
-      >
+      
         <button className="btn-primary" type="submit">
-          Submit-huuhi
+          Submit
         </button>
-      </motion.div>
     </motion.form>
   );
 };
