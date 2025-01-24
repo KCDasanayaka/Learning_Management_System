@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Image1 from "../assets/ImageCarousel/feliphe-schiarolli-hes6nUC1MVc-unsplash.jpg";
 import Image2 from "../assets/ImageCarousel/jeffrey-hamilton-jrRe6er0pY0-unsplash.jpg";
 import Image3 from "../assets/ImageCarousel/jeswin-thomas--hgJu2ykh4E-unsplash.jpg";
+import Image4 from "../assets/ImageCarousel/Image1.jpg";
 import Logo from "../assets/SchoolLogos/School_logo.png";
 
 const HeroImageCarousel = () => {
@@ -18,7 +19,7 @@ const HeroImageCarousel = () => {
     arrows: false, 
   };
 
-  const images = [Image1, Image2, Image3];
+  const images = [Image1, Image2, Image3,Image4];
 
   return (
     <div className="relative bg-gray-100 mt-16">
@@ -29,7 +30,7 @@ const HeroImageCarousel = () => {
           className="h-20 sm:h-28 md:h-36 lg:h-40 mb-4"
         />
         {/* Heading */}
-        <h1 className="text-white text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide fade-in text-center">
+        <h1 className="text-white text-3xl sm:text-3xl md:text-4xl lg:text-5xl font-bold tracking-wide fade-in text-center">
           Welcome to R/Pathagama Maha Vidyalaya
         </h1>
         {/* Paragraph */}
