@@ -54,7 +54,7 @@ const Header = () => {
                   to="/news"
                   className="rounded transition hover:text-yellow-custom "
                 >
-                  News
+                  Announcement
                 </Link>
               </li>
               <li>
@@ -141,7 +141,7 @@ const Header = () => {
                   className="hover:text-yellow-custom"
                   onClick={toggleMenu}
                 >
-                  News
+                  Announcements
                 </Link>
               </li>
               <li>

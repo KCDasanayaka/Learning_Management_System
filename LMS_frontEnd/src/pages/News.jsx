@@ -18,7 +18,7 @@ const News = () => {
         transition={{ duration: 0.5 }}
       >
         <div className='bg-red-custom p-6 mt-12 sm:mt-16 md:mt-14 lg:mt-14'>
-        <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">News</h1>
+        <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">Announcement</h1>
         </div>
       </motion.div>
 
