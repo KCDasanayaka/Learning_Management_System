@@ -17,13 +17,13 @@ const StatsSection = () => {
       >
         <div className="w-full md:w-1/2 lg:w-1/4 mb-6 md:mb-0 ">
           <h3 className="text-5xl font-bold text-yellow-custom">
-            {inView && <CountUp end={3000} duration={2.5} separator="," />}+
+            {inView && <CountUp end={600} duration={2.5} separator="," />}+
           </h3>
           <p className="text-gray-700 text-2xl font-bold">Students</p>
         </div>
         <div className="w-full md:w-1/2 lg:w-1/4">
           <h3 className="text-5xl font-bold text-yellow-custom">
-            {inView && <CountUp end={100} duration={2.5} />}+
+            {inView && <CountUp end={30} duration={2.5} />}+
           </h3>
           <p className="text-gray-700 text-2xl font-bold">Teachers</p>
         </div>
