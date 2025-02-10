@@ -1,8 +1,14 @@
 import "react";
 import Slider from "react-slick";
-import Image1 from "../assets/ImageCarousel/feliphe-schiarolli-hes6nUC1MVc-unsplash.jpg";
-import Image2 from "../assets/ImageCarousel/jeffrey-hamilton-jrRe6er0pY0-unsplash.jpg";
+import Image1 from "../assets/ImageCarousel/Bg-4.jpg";
+import Image2 from "../assets/ImageCarousel/Bg-7.jpg";
 import Image3 from "../assets/ImageCarousel/jeswin-thomas--hgJu2ykh4E-unsplash.jpg";
+import Image5 from "../assets/ImageCarousel/Bg-1.jpg";
+import Image9 from "../assets/ImageCarousel/Bg-5.jpg";
+import Image8 from "../assets/ImageCarousel/Bg-6.jpg";
+import Image6 from "../assets/ImageCarousel/Bg-2.jpg";
+import Image7 from "../assets/ImageCarousel/Bg-3.jpg";
+
 import Image4 from "../assets/ImageCarousel/Image1.jpg";
 import Logo from "../assets/SchoolLogos/School_logo.png";
 
@@ -19,7 +25,7 @@ const HeroImageCarousel = () => {
     arrows: false, 
   };
 
-  const images = [Image1, Image2, Image3,Image4];
+  const images = [Image5, Image9, Image7,Image1,Image8,Image2];
 
   return (
     <div className="relative bg-gray-100 mt-16">
@@ -52,7 +58,7 @@ const HeroImageCarousel = () => {
                 style={{ backgroundImage: `url(${image})` }}
               ></div>
               {/* Dark Overlay */}
-              <div className="absolute inset-0 bg-black opacity-60"></div>
+              <div className="absolute inset-0 bg-black opacity-80"></div>
             </div>
           </div>
         ))}

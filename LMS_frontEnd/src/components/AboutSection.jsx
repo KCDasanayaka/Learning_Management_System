@@ -63,7 +63,7 @@ const AboutSection = () => {
         {/* Text Section */}
         <div className="text-black font-kumbh flex-1 lg:ml-10 mr-10 lg:order-2 order-1">
           <h1 className="text-4xl lg:text-8xl font-bold lg:text-left text-center">
-            132 Years of
+            55 Years of
             Excellence
           </h1>
           <p className="text-base lg:text-base lg:text-justify text-center mt-2">

@@ -6,22 +6,22 @@ import event3Image from "../assets/Event3.jpg";
 
 const callouts = [
   {
-    name: '2025/01/09',
-    description: 'Description for event 1',
+    name: '2025/01/02',
+    description: 'Pre Poya Program',
     imageSrc: event1Image,
     imageAlt: 'Image 1',
     href: '#'
   },
   {
-    name: 'Event 2',
-    description: 'Description for event 2',
+    name: '2025/01/15',
+    description: 'ABHINIMNNA - 2025',
     imageSrc: event2Image,
     imageAlt: 'Image 2',
     href: '#'
   },
   {
-    name: 'Event 3',
-    description: 'Description for event 3',
+    name: '2025/01/24',
+    description: 'Student Saviya - 2025',
     imageSrc: event3Image,
     imageAlt: 'Image 3',
     href: '#'
