@@ -12,13 +12,13 @@ const Body = () => {
 
     return (
         <div className="font-inter">
+            {/* Stats Section */}
+            {/* <StatsSection/> */}
 
             {/* About Section */}
             <AboutSection />
-            <SchAbout/>
+            <SchAbout />
 
-            {/* Stats Section */}
-            <StatsSection />
 
             {/* Learning Online Section */}
             <section className="relative py-12 text-white">

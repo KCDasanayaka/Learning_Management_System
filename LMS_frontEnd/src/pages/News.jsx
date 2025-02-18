@@ -38,20 +38,21 @@ const News = () => {
   );
 
   return (
-    <div className="min-h-screen my-28">
+    <div className="min-h-screen my-28 font-inter">
+      <span className='text-2xl font-bold px-12'>Notice</span>
       {/* News Cards */}
       <div className="container mx-auto px-4 py-12">
         <div className="grid gap-8">
           {sortedNewsItems.map((item, index) => (
             <motion.div
               key={index}
-              className="bg-white rounded-lg shadow-xl overflow-hidden hover:shadow-2xl transition-shadow duration-300"
+              className="bg-white rounded-md border overflow-hidden hover:shadow-md transition-shadow duration-300"
               variants={cardVariants}
               initial="hidden"
               animate="visible"
               transition={{ duration: 0.5, delay: index * 0.2 }}
             >
-              {/* Card Image */}
+        
               <div className="relative">
                 <div className="absolute top-4 right-4 bg-yellow-400 text-red-800 px-4 py-1 rounded-full">
                   <div className="flex items-center space-x-2">
@@ -63,7 +64,7 @@ const News = () => {
 
               {/* Card Content */}
               <div className="p-6">
-                <h2 className="font-kumbh text-2xl font-bold text-red-800 mb-4">
+                <h2 className="text-xl font-bold text-red-800 mb-4">
                   {item.title}
                 </h2>
 
@@ -73,7 +74,7 @@ const News = () => {
                     <span className="text-sm">Posted {item.date}</span>
                   </div>
                   <button className="flex items-center space-x-2 text-red-800 hover:text-red-600 font-semibold transition-colors duration-200">
-                    <span>Read More</span>
+                    <span className='text-sm'>Read More</span>
                     <ArrowRight size={16} />
                   </button>
                 </div>
