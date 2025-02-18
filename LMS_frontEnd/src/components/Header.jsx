@@ -51,10 +51,10 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/news"
+                  to="/notice"
                   className="rounded transition hover:text-yellow-custom "
                 >
-                  Announcement
+                  Notice
                 </Link>
               </li>
               <li>
@@ -68,7 +68,7 @@ const Header = () => {
               <li>
                 <Link
                   to="/contact"
-                  className="rounded transition hover:text-yellow-custom focus:outline-none focus:ring-1 focus:ring-yellow-custom focus:ring-offset-2"
+                  className="rounded transition hover:text-yellow-custom "
                 >
                   Contact Us
                 </Link>

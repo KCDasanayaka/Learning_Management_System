@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-scroll"; // Import Link from react-scroll
-import point from "../assets/Point.png";
+import { Link } from "react-scroll";
+import { FiArrowUp } from "react-icons/fi";
 import academicData from "../data/academicData";
 
 const cardVariants = {
@@ -11,99 +11,99 @@ const cardVariants = {
 
 const Academic = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Header Section */}
-      <motion.div
-        className="bg-primary py-12"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="bg-red-custom p-6 mt-12 sm:mt-16 md:mt-16 lg:mt-14">
-          <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">
-            Academic
-          </h1>
-        </div>
-      </motion.div>
-
-      {/* First Content Section */}
-      <motion.div
-        className="flex-1 px-4 sm:px-6 md:px-8 py-6"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <div className="mt-4">
-          <h2 className="font-kumbh text-3xl sm:text-4xl font-bold uppercase text-center">
-            Grades
-          </h2>
-          <div className="mt-8 flex flex-col justify-center align-middle ">
-            <div className="flex flex-wrap gap-6 justify-center text-xl font-semibold ">
-              {/* Grade Buttons with react-scroll Link */}
-              {academicData.map((grade) => (
-                <Link
-                  key={grade.id}
-                  to={`grade-${grade.id}`} // Smooth scroll target
-                  smooth={true} // Enable smooth scrolling
-                  duration={500} // Scroll duration (milliseconds)
-                  offset={-50} // Adjust for the offset (e.g., for fixed headers)
-                  className="btn-primary cursor-pointer px-2 py-1 h-10 w-15  flex align-middle justify-center"
-                >
-                  {grade.grade}
-                </Link>
-              ))}
-            </div>
+    <div className="min-h-screen flex flex-col bg-gray-50 font-inter">
+      {/* Grade Navigation */}
+      <nav className="sticky top-10 bg-white z-10 mb-8">
+        <div className="container mx-auto px-4 py-16">
+          <div className="flex flex-wrap justify-center gap-3">
+            {academicData.map((grade) => (
+              <Link
+                key={grade.id}
+                to={`grade-${grade.id}`}
+                smooth={true}
+                duration={500}
+                offset={-100}
+                className="px-5 py-2 rounded-full bg-white text-red-custom border-2 border-gray-100 transition-all cursor-pointer font-medium hover:bg-red-custom hover:text-yellow-custom active:scale-95"
+                activeClass="bg-blue-100 border-blue-500 text-blue-900"
+              >
+                {grade.grade}
+              </Link>
+            ))}
           </div>
         </div>
-      </motion.div>
+      </nav>
 
-      {/* Centered Black Line */}
-      <motion.div className="flex items-center justify-center my-12">
-        <div className="bg-black h-1 w-3/4 rounded-3xl" />
-      </motion.div>
-
-      {/* Cards Section */}
-      <motion.div>
-        <div className="flex flex-col items-center justify-center m-12 mt-4 space-y-10">
+      {/* Main Content */}
+      <main className="flex-1 container mx-auto px-4 py-12">
+        <div className="grid gap-8 max-w-4xl mx-auto">
           {academicData.map((data, index) => (
-            <motion.div
+            <motion.section
               key={data.id}
-              id={`grade-${data.id}`} // Unique ID for each grade section
-              className="w-full lg:w-3/4 bg-yellow-custom rounded-b-[25px] shadow-lg overflow-hidden"
+              id={`grade-${data.id}`}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
               variants={cardVariants}
               initial="hidden"
               animate="visible"
-              transition={{ duration: 0.5, delay: index * 0.2 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
             >
-              {/* Title Section */}
-              <div className="p-4">
-                <h2 className="font-kumbh text-2xl text-center font-bold text-red-custom">
-                  {data.grade}
+              {/* Grade Header */}
+              <div className="bg-red-custom p-6">
+                <h2 className="text-2xl font-bold text-white text-center">
+                  {data.grade} Division
                 </h2>
               </div>
 
-              {/* Description Section */}
-              <div className="bg-red-custom text-white px-6 py-6 flex align-middle justify-center">
-                <p className="font-kumbh text-lg leading-relaxed flex justify-center align-center flex-col">
-                  <strong className="text-xl-custom">
-                    Sectional Head - {data.sectionalHead}
-                  </strong>
-                  <br />
-                  <ul className="list-point-image pl-6 space-y-2 -mt-6">
+              {/* Content Section */}
+              <div className="p-8">
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-red-custom mb-2">
+                    Sectional Head:
+                  </h3>
+                  <p className="text-gray-700 text-lg">{data.sectionalHead}</p>
+                </div>
+
+                <div className="border-t pt-6">
+                  <h3 className="text-lg font-semibold text-red-custom mb-4">
+                    Teaching Staff:
+                  </h3>
+                  <ul className="grid gap-4 md:grid-cols-2">
                     {data.teachers.map((teacher, index) => (
-                      <li key={index} className="flex items-center">
-                        <img src={point} alt="bullet" className="w-3 h-3 mr-2" />
-                        <strong className="mr-2">{teacher.section}</strong> -{" "}
-                        {teacher.teacher}
+                      <li
+                        key={index}
+                        className="flex items-start pl-3 border-l-4 border-yellow-custom"
+                      >
+                        <div className="flex-1">
+                          <p className="font-medium text-gray-900">
+                            {teacher.section}
+                          </p>
+                          <p className="text-gray-600">{teacher.teacher}</p>
+                        </div>
                       </li>
                     ))}
                   </ul>
-                </p>
+                </div>
               </div>
-            </motion.div>
+            </motion.section>
           ))}
         </div>
-      </motion.div>
+
+        {/* Back to Top Button */}
+        <motion.div
+          className="fixed bottom-8 right-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+        >
+          <Link
+            to="grade-1"
+            smooth={true}
+            duration={800}
+            className="bg-white text-red-custom p-3 border rounded-full shadow-lg hover:bg-yellow-custom transition-colors cursor-pointer flex items-center justify-center"
+          >
+            <FiArrowUp className="w-5 h-5" />
+          </Link>
+        </motion.div>
+      </main>
     </div>
   );
 };
