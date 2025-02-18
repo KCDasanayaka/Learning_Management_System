@@ -1,17 +1,13 @@
 import "react";
 import Slider from "react-slick";
+import { motion } from "framer-motion";
 import Image1 from "../assets/ImageCarousel/Bg-4.jpg";
 import Image2 from "../assets/ImageCarousel/Bg-7.jpg";
-
 import Image5 from "../assets/ImageCarousel/Bg-1.jpg";
 import Image9 from "../assets/ImageCarousel/Bg-5.jpg";
 import Image8 from "../assets/ImageCarousel/Bg-6.jpg";
-
 import Image7 from "../assets/ImageCarousel/Bg-3.jpg";
-
-
 import Logo from "../assets/SchoolLogos/School_logo.png";
-import StatsSection from "./StatsSection";
 
 
 const HeroImageCarousel = () => {
@@ -63,12 +59,25 @@ const HeroImageCarousel = () => {
           and guide them toward a brighter future with our dedicated faculty
           and excellent facilities.
         </p>
+        
       </div>
-
-      {/* Move StatsSection Below the Carousel */}
-      <div className="relative z-10 -mt-24">
-        <StatsSection />
-      </div>
+      
+      {/* Floating Scroll Indicator */}
+      <motion.div
+        className="absolute bottom-20 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1 }}
+      >
+        <span className="text-white text-sm mb-2">Scroll Down</span>
+        <div className="w-4 h-8 border-2 border-white rounded-full">
+          <motion.div
+            className="w-2 h-2 bg-white rounded-full mt-1"
+            animate={{ y: [0, 12, 0] }}
+            transition={{ duration: 1.5, repeat: Infinity }}
+          ></motion.div>
+        </div>
+      </motion.div>
 
     </div>
   );
