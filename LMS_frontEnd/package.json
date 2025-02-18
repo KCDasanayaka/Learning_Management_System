@@ -25,7 +25,8 @@
     "react-scroll": "^1.9.2",
     "react-slick": "^0.30.3",
     "slick-carousel": "^1.8.1",
-    "sweetalert2": "^11.15.10"
+    "sweetalert2": "^11.15.10",
+    "tailwindcss-patterns": "^0.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

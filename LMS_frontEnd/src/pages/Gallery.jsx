@@ -9,97 +9,75 @@ const callouts = [
     name: '2025/01/02',
     description: 'Pre Poya Program',
     imageSrc: event1Image,
-    imageAlt: 'Image 1',
+    imageAlt: 'Group meditation session in temple',
     href: '#'
   },
   {
     name: '2025/01/15',
     description: 'ABHINIMNNA - 2025',
     imageSrc: event2Image,
-    imageAlt: 'Image 2',
+    imageAlt: 'Cultural dance performance stage',
     href: '#'
   },
   {
     name: '2025/01/24',
     description: 'Student Saviya - 2025',
     imageSrc: event3Image,
-    imageAlt: 'Image 3',
+    imageAlt: 'Students participating in workshop',
     href: '#'
   }
 ];
 
 const Gallery = () => {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Header Section */}
-      <motion.div
-        className="bg-primary py-12"
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        role="banner"
-      >
-        <div className="bg-red-custom p-6 mt-12 sm:mt-16 md:mt-16 lg:mt-14">
-          <h1 className="font-kumbh text-4xl text-center text-yellow-custom uppercase font-custom-custom">
-            Gallery
-          </h1>
-        </div>
-      </motion.div>
-
-      {/* Gallery Section */}
-      <motion.div
-        className="bg-white"
-        initial="hidden"
-        animate="visible"
-        variants={{
-          hidden: { opacity: 0, scale: 0.8 },
-          visible: { opacity: 1, scale: 1, transition: { duration: 0.8 } }
-        }}
-      >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl py-4 sm:py-6 lg:max-w-none lg:py-6">
-            <motion.div
-              className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.3 }}
+    <div className="min-h-screen flex flex-col my-28 font-inter">
+       
+       <span className='text-2xl font-bold px-12 '>Gallery</span>
+     
+           {/* Modern Gallery Grid */}
+      <section className="container mx-auto px-4 py-12 pb-20">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          animate="visible"
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+          }}
+        >
+          {callouts.map((event, index) => (
+            <motion.article
+              key={event.name}
+              className="group relative aspect-square rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
               variants={{
-                hidden: { opacity: 0, y: 50 },
-                visible: {
-                  opacity: 1,
-                  y: 0,
-                  transition: { staggerChildren: 0.2 }
-                }
+                hidden: { opacity: 0, scale: 0.8 },
+                visible: { opacity: 1, scale: 1 }
               }}
+              whileHover={{ scale: 1.02 }}
             >
-              {callouts.map((callout) => (
-                <motion.div
-                  key={callout.name}
-                  className="group relative"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <motion.img
-                    alt={callout.imageAlt}
-                    src={callout.imageSrc}
-                    className="w-full rounded-lg bg-white object-cover group-hover:opacity-75 max-sm:h-80 sm:aspect-[2/1] lg:aspect-square"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5 }}
-                  />
-                  <h3 className="mt-6 text-sm text-gray-500">
-                    <a href={callout.href}>
-                      <span className="absolute inset-0" />
-                      {callout.name}
-                    </a>
-                  </h3>
-                  <p className="text-base font-semibold text-gray-900">{callout.description}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </div>
-      </motion.div>
+              <img
+                src={event.imageSrc}
+                alt={event.imageAlt}
+                className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
+              />
+              
+              {/* Gradient Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
+              
+              {/* Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white space-y-2 translate-y-0 transition-transform duration-300 group-hover:-translate-y-2">
+                <span className="text-sm font-medium text-gray-200">
+                  {event.name}
+                </span>
+                <h3 className="text-xl font-bold">{event.description}</h3>
+                <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20">
+                  View Event
+                </button>
+              </div>
+            </motion.article>
+          ))}
+        </motion.div>
+      </section>
     </div>
   );
 };

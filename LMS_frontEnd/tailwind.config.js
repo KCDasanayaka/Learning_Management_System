@@ -11,6 +11,9 @@ export default {
         'red-custom': '#4E0A0A',
         'yellow-custom': '#F9C524',
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      },
       colors: {
         'yellow-custom': '#F9C524',
         'red-custom': '#4E0A0A',
