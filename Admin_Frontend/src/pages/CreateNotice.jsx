@@ -118,7 +118,7 @@ const CreateNotice = () => {
   );
 
   return (
-    <div className="min-h-screen bg-gray-50 p-8 font-inter">
+    <div className="min-h-screen bg-white p-8 mt-20 font-inter">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
@@ -182,7 +182,7 @@ const CreateNotice = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="p-12 bg-white rounded-2xl border-2 border-dashed border-gray-200 text-center"
+            className="p-12 bg-white rounded-sm border-2 border-dashed border-gray-200 text-center"
           >
             <div className="text-yellow-500 mb-4">
               <FileText size={48} strokeWidth={1.5} />
@@ -191,20 +191,20 @@ const CreateNotice = () => {
             <p className="text-gray-500">Create your first announcement</p>
           </motion.div>
         ) : (
-          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+          <div className="bg-white rounded-sm shadow-sm overflow-hidden">
             <table className="min-w-full divide-y divide-gray-200">
               <thead className="bg-gray-50">
                 <tr>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                     Title
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                     Deadline
                   </th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-left text-sm font-medium text-gray-500 uppercase tracking-wider">
                     PDF Link
                   </th>
-                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                  <th className="px-6 py-3 text-right text-sm font-medium text-gray-500 uppercase tracking-wider">
                     Actions
                   </th>
                 </tr>
@@ -266,7 +266,7 @@ const CreateNotice = () => {
 
         {/* Pagination */}
         {totalPages > 1 && (
-          <div className="flex justify-end items-center gap-4 mt-8">
+          <div className="flex justify-end items-center gap-4 mt-8 ">
             <motion.button
               whileTap={{ scale: 0.95 }}
               onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
