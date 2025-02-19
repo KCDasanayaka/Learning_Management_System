@@ -7,7 +7,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<CreateNotice />} />
+        <Route path="/create-notice" element={<CreateNotice />} />
       </Routes>
     </Router>
   );

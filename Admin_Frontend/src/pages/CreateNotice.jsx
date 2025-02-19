@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import {
-  Edit,
-  Trash2,
-  FileText,
-  Plus,
-  X,
-  Calendar as CalendarIcon,
-  Link2,
-} from "lucide-react";
+import { Edit, Trash2, FileText, Plus, X, Calendar, Link2 } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import { motion, AnimatePresence } from "framer-motion";
+import "react-toastify/dist/ReactToastify.css";
 
 const CreateNotice = () => {
   const [notices, setNotices] = useState([]);
@@ -98,13 +90,6 @@ const CreateNotice = () => {
   // Date format options for "January 15, 2024"
   const dateOptions = { month: "long", day: "numeric", year: "numeric" };
 
-  // Animation variants for the modal
-  const modalVariants = {
-    hidden: { opacity: 0, y: -20 },
-    visible: { opacity: 1, y: 0 },
-    exit: { opacity: 0, y: 20 },
-  };
-
   // Filter notices based on search term and filter option
   const filteredNotices = notices.filter((notice) => {
     // Search filter by title
@@ -133,271 +118,283 @@ const CreateNotice = () => {
   );
 
   return (
-    <div className="container mx-auto py-10 px-4 max-w-7xl">
-      {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">
-            Notice Management
-          </h1>
-          <p className="text-gray-500 mt-1">
-            Manage school announcements and deadlines
-          </p>
+    <div className="min-h-screen bg-gray-50 p-8 font-inter">
+      <div className="max-w-7xl mx-auto">
+        {/* Header */}
+        <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="space-y-2">
+            <h1 className="text-3xl font-bold text-red-800">
+              Notice Management
+            </h1>
+            <p className="text-gray-600">Manage academic announcements</p>
+          </div>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => {
+              setShowForm(true);
+              setEditId(null);
+            }}
+            className="flex items-center gap-2 px-5 py-3 bg-red-900 hover:bg-red-950 text-white font-medium rounded-xl shadow-lg transition-all"
+          >
+            <Plus size={20} />
+            Add Notice
+          </motion.button>
         </div>
-        <button
-          onClick={() => {
-            setShowForm(true);
-            setEditId(null);
-          }}
-          title="Add Notice"
-          className="flex items-center bg-blue-600 hover:bg-blue-700 text-white font-medium py-2.5 px-5 rounded-lg transition-all"
-        >
-          <Plus size={18} className="mr-2" />
-          Add Notice
-        </button>
-      </div>
 
-      {/* Search and Filter Options */}
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-        <input
-          type="text"
-          placeholder="Search notices..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          title="Search notices"
-          className="w-full sm:w-1/2 px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-        />
-        <select
-          value={filterStatus}
-          onChange={(e) => setFilterStatus(e.target.value)}
-          title="Filter notices"
-          className="w-full sm:w-auto px-4 py-2 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-        >
-          <option value="all">All</option>
-          <option value="upcoming">Upcoming</option>
-          <option value="past">Past</option>
-        </select>
-      </div>
+        {/* Search and Filter Bar */}
+        <div className="mb-8 flex flex-col sm:flex-row gap-4">
+          <div className="relative flex-1">
+            <input
+              type="text"
+              placeholder="Search notices..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-1/2 pl-10 pr-4 py-3 bg-white rounded-xl border border-gray-200 shadow-sm"
+            />
+            <svg
+              className="absolute left-3 top-3.5 text-gray-400 h-5 w-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              />
+            </svg>
+          </div>
+          <select
+            value={filterStatus}
+            onChange={(e) => setFilterStatus(e.target.value)}
+            className="px-4 py-3 bg-white rounded-xl border border-gray-200 shadow-sm"
+          >
+            <option value="all">All</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="past">Past</option>
+          </select>
+        </div>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {showForm && (
+        {/* Notices Table */}
+        {filteredNotices.length === 0 ? (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+            className="p-12 bg-white rounded-2xl border-2 border-dashed border-gray-200 text-center"
           >
-            <motion.div
-              variants={modalVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-              className="relative bg-white rounded-xl shadow-2xl p-6 w-full max-w-lg"
-            >
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-xl font-semibold">
-                  {editId ? "Edit Notice" : "Create New Notice"}
-                </h2>
-                <button
-                  onClick={() => {
-                    setShowForm(false);
-                    setEditId(null);
-                  }}
-                  title="Close Form"
-                  className="text-gray-400 hover:text-gray-600 rounded-lg p-1"
-                >
-                  <X size={20} />
-                </button>
-              </div>
-
-              <form onSubmit={handleSubmit} className="space-y-5">
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+            <div className="text-yellow-500 mb-4">
+              <FileText size={48} strokeWidth={1.5} />
+            </div>
+            <h3 className="text-xl font-semibold text-gray-800 mb-2">No notices found</h3>
+            <p className="text-gray-500">Create your first announcement</p>
+          </motion.div>
+        ) : (
+          <div className="bg-white rounded-2xl shadow-sm overflow-hidden">
+            <table className="min-w-full divide-y divide-gray-200">
+              <thead className="bg-gray-50">
+                <tr>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Title
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="text"
-                      value={title}
-                      onChange={(e) => setTitle(e.target.value)}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                      placeholder="Notice title..."
-                      required
-                    />
-                    <FileText
-                      className="absolute right-3 top-3 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     Deadline
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="date"
-                      value={deadline}
-                      onChange={(e) => setDeadline(e.target.value)}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                      required
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1.5">
+                  </th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                     PDF Link
-                  </label>
-                  <div className="relative">
-                    <input
-                      type="url"
-                      value={pdfLink}
-                      onChange={(e) => setPdfLink(e.target.value)}
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-none transition-all"
-                      placeholder="https://drive.google.com/..."
-                      required
-                    />
-                    <Link2
-                      className="absolute right-3 top-3 text-gray-400"
-                      size={18}
-                    />
-                  </div>
-                </div>
+                  </th>
+                  <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody className="bg-white divide-y divide-gray-200">
+                {currentNotices.map((notice) => {
+                  const noticeDate = new Date(notice.deadline);
+                  const isPast = noticeDate < new Date();
 
-                <div className="flex justify-end gap-3 mt-8">
+                  return (
+                    <motion.tr
+                      key={notice._id}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      className="hover:bg-gray-50 transition-colors"
+                    >
+                      <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                        {notice.title}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                        <div className="flex items-center gap-2">
+                          <Calendar size={16} className="text-gray-400" />
+                          {noticeDate.toLocaleDateString("en-US", dateOptions)}
+                        </div>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                        <a
+                          href={notice.pdfLink}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
+                        >
+                          <Link2 size={16} />
+                          View PDF
+                        </a>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                        <button
+                          onClick={() => handleEdit(notice)}
+                          className="text-yellow-600 hover:text-yellow-900 p-2 rounded-lg hover:bg-blue-50 transition-colors"
+                        >
+                          <Edit size={18} />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(notice._id)}
+                          className="text-red-600 hover:text-red-900 p-2 rounded-lg hover:bg-red-50 transition-colors"
+                        >
+                          <Trash2 size={18} />
+                        </button>
+                      </td>
+                    </motion.tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+        )}
+
+        {/* Pagination */}
+        {totalPages > 1 && (
+          <div className="flex justify-end items-center gap-4 mt-8">
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setCurrentPage((prev) => Math.max(1, prev - 1))}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 disabled:opacity-50"
+            >
+              Previous
+            </motion.button>
+            <span className="text-sm text-gray-600">
+              Page {currentPage} of {totalPages}
+            </span>
+            <motion.button
+              whileTap={{ scale: 0.95 }}
+              onClick={() => setCurrentPage((prev) => Math.min(totalPages, prev + 1))}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-white border border-gray-200 rounded-xl hover:bg-gray-50 disabled:opacity-50"
+            >
+              Next
+            </motion.button>
+          </div>
+        )}
+
+        {/* Modal Form */}
+        <AnimatePresence>
+          {showForm && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-50 bg-black/30 backdrop-blur-sm flex items-center justify-center p-4"
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                className="bg-white rounded-2xl shadow-2xl w-full max-w-md"
+              >
+                <div className="p-6 border-b border-gray-100 flex justify-between items-center">
+                  <h2 className="text-xl font-semibold">
+                    {editId ? "Edit Notice" : "Create New Notice"}
+                  </h2>
                   <button
-                    type="button"
                     onClick={() => {
                       setShowForm(false);
                       setEditId(null);
                     }}
-                    title="Cancel"
-                    className="px-5 py-2.5 text-gray-600 hover:text-gray-800 font-medium rounded-lg transition-colors"
+                    className="p-2 hover:bg-gray-100 rounded-lg text-gray-500 hover:text-gray-700"
                   >
-                    Cancel
-                  </button>
-                  <button
-                    type="submit"
-                    title={editId ? "Save Changes" : "Create Notice"}
-                    className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-medium rounded-lg transition-colors"
-                  >
-                    {editId ? "Save Changes" : "Create Notice"}
+                    <X size={20} />
                   </button>
                 </div>
-              </form>
+
+                <form onSubmit={handleSubmit} className="p-6 space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Title
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="text"
+                        value={title}
+                        onChange={(e) => setTitle(e.target.value)}
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl "
+                        placeholder="Notice title..."
+                        required
+                      />
+                      <FileText className="absolute right-3 top-3 text-gray-400" size={18} />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Deadline
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="date"
+                        value={deadline}
+                        onChange={(e) => setDeadline(e.target.value)}
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl"
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      PDF Link
+                    </label>
+                    <div className="relative">
+                      <input
+                        type="url"
+                        value={pdfLink}
+                        onChange={(e) => setPdfLink(e.target.value)}
+                        className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl "
+                        placeholder="https://example.com/document.pdf"
+                        required
+                      />
+                      <Link2 className="absolute right-3 top-3 text-gray-400" size={18} />
+                    </div>
+                  </div>
+
+                  <div className="flex justify-end gap-3 pt-6">
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      type="button"
+                      onClick={() => setShowForm(false)}
+                      className="px-5 py-2.5 text-gray-600 bg-gray-200 hover:bg-gray-400 hover:text-white font-medium rounded-xl"
+                    >
+                      Cancel
+                    </motion.button>
+                    <motion.button
+                      whileTap={{ scale: 0.95 }}
+                      type="submit"
+                      className="px-5 py-2.5 bg-red-900 hover:bg-red-950 text-white font-medium rounded-xl"
+                    >
+                      {editId ? "Save Changes" : "Create Notice"}
+                    </motion.button>
+                  </div>
+                </form>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Notices Table */}
-      {filteredNotices.length === 0 ? (
-        <div className="text-center py-16 rounded-xl bg-gray-50 border-2 border-dashed">
-          <div className="text-gray-400 mb-3">No notices found</div>
-          <div className="text-gray-500 text-sm">
-            Click "Add Notice" to create a new announcement
-          </div>
-        </div>
-      ) : (
-        <div className="overflow-x-auto relative">
-          <table className="min-w-full divide-y divide-gray-200">
-            <thead className="bg-gray-50">
-              <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Title
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Deadline
-                </th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  PDF Link
-                </th>
-                <th className="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            <tbody className="bg-white divide-y divide-gray-200">
-              {currentNotices.map((notice) => (
-                <tr key={notice._id}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {notice.title}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {new Date(notice.deadline).toLocaleDateString(
-                      "en-US",
-                      dateOptions
-                    )}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm">
-                    <a
-                      href={notice.pdfLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      title="View PDF Document"
-                      className="text-blue-600 hover:text-blue-800"
-                    >
-                      View PDF
-                    </a>
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button
-                      onClick={() => handleEdit(notice)}
-                      title="Edit Notice"
-                      className="text-blue-600 hover:text-blue-900 mr-3"
-                    >
-                      <Edit size={18} />
-                    </button>
-                    <button
-                      onClick={() => handleDelete(notice._id)}
-                      title="Delete Notice"
-                      className="text-red-600 hover:text-red-900"
-                    >
-                      <Trash2 size={18} />
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          {/* Pagination Controls Positioned at Bottom Right */}
-          {totalPages > 1 && (
-            <div className="flex justify-end items-center mt-4 space-x-4">
-              <button
-                onClick={() =>
-                  setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev))
-                }
-                disabled={currentPage === 1}
-                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
-                title="Previous Page"
-              >
-                Previous
-              </button>
-              <span className="text-sm text-gray-700">
-                Page {currentPage} of {totalPages}
-              </span>
-              <button
-                onClick={() =>
-                  setCurrentPage((prev) =>
-                    prev < totalPages ? prev + 1 : prev
-                  )
-                }
-                disabled={currentPage === totalPages}
-                className="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300 disabled:opacity-50"
-                title="Next Page"
-              >
-                Next
-              </button>
-            </div>
           )}
-        </div>
-      )}
+        </AnimatePresence>
 
-      {/* Toast Notifications */}
-      <ToastContainer position="top-right" autoClose={3000} />
+        {/* Toast Notifications */}
+        <ToastContainer position="bottom-right" autoClose={3000} />
+      </div>
     </div>
   );
 };
