@@ -368,7 +368,7 @@ const CreateEventPage = () => {
                         className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl"
                         required
                       />
-                      <Calendar className="absolute right-3 top-3 text-gray-400" size={18} />
+                      
                     </div>
                   </div>
                   <div>
@@ -412,7 +412,7 @@ const CreateEventPage = () => {
                     <motion.button
                       whileTap={{ scale: 0.95 }}
                       type="submit"
-                      className="px-5 py-2.5 bg-blue-900 hover:bg-blue-950 text-white font-medium rounded-xl"
+                      className="px-5 py-2.5 bg-red-900 hover:bg-red-950 text-white font-medium rounded-xl"
                     >
                       {editId ? "Save Changes" : "Create Event"}
                     </motion.button>
