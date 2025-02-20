@@ -21,7 +21,12 @@ const GalleryPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col my-28 font-inter">
+    <motion.div
+      className="min-h-screen flex flex-col my-28 font-inter"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }} // Smooth fade-in effect for the whole page
+    >
       <span className="text-2xl font-bold px-12">Gallery</span>
       <section className="container mx-auto px-4 py-12 pb-20">
         <motion.div
@@ -30,16 +35,19 @@ const GalleryPage = () => {
           animate="visible"
           variants={{
             hidden: { opacity: 0 },
-            visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.3, delayChildren: 0.2 } // Delays card loading
+            }
           }}
         >
-          {events.map((event) => (
+          {events.map((event, index) => (
             <motion.article
               key={event._id}
-              className="group relative aspect-square rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
+              className="group relative aspect-square rounded-xl overflow-hidden shadow-xl hover:shadow-xl transition-shadow duration-300"
               variants={{
-                hidden: { opacity: 0, scale: 0.8 },
-                visible: { opacity: 1, scale: 1 }
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.8, delay: index * 0.2 } }
               }}
               whileHover={{ scale: 1.02 }}
             >
@@ -65,7 +73,7 @@ const GalleryPage = () => {
           ))}
         </motion.div>
       </section>
-    </div>
+    </motion.div>
   );
 };
 
