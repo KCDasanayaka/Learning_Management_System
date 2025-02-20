@@ -15,7 +15,7 @@ const CreateEventPage = () => {
   const [editId, setEditId] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterStatus, setFilterStatus] = useState("all");
+  const [filterMonth, setFilterMonth] = useState("all"); // New state for month filter
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ const CreateEventPage = () => {
   // Reset pagination whenever search/filter changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [searchTerm, filterStatus]);
+  }, [searchTerm, filterMonth]);
 
   const fetchEvents = async () => {
     try {
@@ -102,16 +102,19 @@ const CreateEventPage = () => {
     }
   };
 
-  // Filter events based on search term and event date status (upcoming/past)
+  // Filter events based on search term and selected month
   const filteredEvents = events.filter((event) => {
+    // Filter by search term (event name)
     if (searchTerm && !event.name.toLowerCase().includes(searchTerm.toLowerCase())) {
       return false;
     }
-    const eventDateObj = new Date(event.date);
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    if (filterStatus === "upcoming" && eventDateObj < today) return false;
-    if (filterStatus === "past" && eventDateObj >= today) return false;
+    // Filter by month if a month is selected
+    if (filterMonth !== "all") {
+      const eventMonth = new Date(event.date).getMonth(); // getMonth returns 0 for January, 1 for February, etc.
+      if (eventMonth !== parseInt(filterMonth)) {
+        return false;
+      }
+    }
     return true;
   });
 
@@ -176,13 +179,23 @@ const CreateEventPage = () => {
             </svg>
           </div>
           <select
-            value={filterStatus}
-            onChange={(e) => setFilterStatus(e.target.value)}
+            value={filterMonth}
+            onChange={(e) => setFilterMonth(e.target.value)}
             className="px-4 py-3 bg-white rounded-xl border border-gray-200 shadow-sm"
           >
             <option value="all">All</option>
-            <option value="upcoming">Upcoming</option>
-            <option value="past">Past</option>
+            <option value="0">January</option>
+            <option value="1">February</option>
+            <option value="2">March</option>
+            <option value="3">April</option>
+            <option value="4">May</option>
+            <option value="5">June</option>
+            <option value="6">July</option>
+            <option value="7">August</option>
+            <option value="8">September</option>
+            <option value="9">October</option>
+            <option value="10">November</option>
+            <option value="11">December</option>
           </select>
         </div>
 
