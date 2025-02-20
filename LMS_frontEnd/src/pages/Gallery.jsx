@@ -1,40 +1,28 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { motion } from 'framer-motion';
-import event1Image from "../assets/Event1.jpg";
-import event2Image from "../assets/Event2.jpeg";
-import event3Image from "../assets/Event3.jpg";
+import { useNavigate } from 'react-router-dom';
 
-const callouts = [
-  {
-    name: '2025/01/02',
-    description: 'Pre Poya Program',
-    imageSrc: event1Image,
-    imageAlt: 'Group meditation session in temple',
-    href: '#'
-  },
-  {
-    name: '2025/01/15',
-    description: 'ABHINIMNNA - 2025',
-    imageSrc: event2Image,
-    imageAlt: 'Cultural dance performance stage',
-    href: '#'
-  },
-  {
-    name: '2025/01/24',
-    description: 'Student Saviya - 2025',
-    imageSrc: event3Image,
-    imageAlt: 'Students participating in workshop',
-    href: '#'
-  }
-];
+const GalleryPage = () => {
+  const [events, setEvents] = useState([]);
+  const navigate = useNavigate();
 
-const Gallery = () => {
+  const fetchEvents = async () => {
+    try {
+      const res = await axios.get('http://localhost:5000/api/events');
+      setEvents(res.data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col my-28 font-inter">
-       
-       <span className='text-2xl font-bold px-12 '>Gallery</span>
-     
-           {/* Modern Gallery Grid */}
+      <span className="text-2xl font-bold px-12">Gallery</span>
       <section className="container mx-auto px-4 py-12 pb-20">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
@@ -45,9 +33,9 @@ const Gallery = () => {
             visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
           }}
         >
-          {callouts.map((event, index) => (
+          {events.map((event) => (
             <motion.article
-              key={event.name}
+              key={event._id}
               className="group relative aspect-square rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300"
               variants={{
                 hidden: { opacity: 0, scale: 0.8 },
@@ -56,21 +44,20 @@ const Gallery = () => {
               whileHover={{ scale: 1.02 }}
             >
               <img
-                src={event.imageSrc}
-                alt={event.imageAlt}
+                src={event.images[0]?.url || ''}
+                alt={event.name}
                 className="w-full h-full object-cover transform transition-transform duration-300 group-hover:scale-105"
               />
-              
-              {/* Gradient Overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 to-transparent" />
-              
-              {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white space-y-2 translate-y-0 transition-transform duration-300 group-hover:-translate-y-2">
                 <span className="text-sm font-medium text-gray-200">
-                  {event.name}
+                  {new Date(event.date).toLocaleDateString()}
                 </span>
-                <h3 className="text-xl font-bold">{event.description}</h3>
-                <button className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20">
+                <h3 className="text-xl font-bold">{event.name}</h3>
+                <button
+                  onClick={() => navigate(`/event/${event._id}`)}
+                  className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-lg hover:bg-white/20"
+                >
                   View Event
                 </button>
               </div>
@@ -82,4 +69,4 @@ const Gallery = () => {
   );
 };
 
-export default Gallery;
+export default GalleryPage;
