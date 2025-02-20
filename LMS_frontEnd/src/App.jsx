@@ -8,7 +8,8 @@ import Academic from './pages/Academic';
 import Header from './components/Header';
 import ContactUs from './pages/ContactUs';
 import Footer from './components/footer';
-// import NavBar from './components/NavBar';
+import EventDetailsPage from './pages/EventDetailsPage';
+
 
 const App = () => {
   return (
@@ -16,7 +17,6 @@ const App = () => {
 
       {/*header */}
       <Header />
-      {/* <NavBar/> */}
 
       {/* Routes for Different Pages */}
       <Routes>
@@ -24,6 +24,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/gallery" element={<Gallery />} />
+        <Route path="/event/:eventId" element={<EventDetailsPage />} />
         <Route path="/notice" element={<News />} />
         <Route path="/academic" element={<Academic />} />
       </Routes>
