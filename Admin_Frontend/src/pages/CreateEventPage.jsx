@@ -32,7 +32,8 @@ const CreateEventPage = () => {
   const fetchEvents = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/events");
-      setEvents(response.data);
+      // Reverse the events array so that newly created events are displayed first
+      setEvents(response.data.reverse());
     } catch (error) {
       console.error("Error fetching events:", error);
       toast.error("Failed to fetch events. Please try again.");
@@ -129,7 +130,7 @@ const CreateEventPage = () => {
         {/* Header */}
         <div className="mb-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold text-blue-800">Event Management</h1>
+            <h1 className="text-3xl font-bold text-red-800">Event Management</h1>
             <p className="text-gray-600">Manage your events seamlessly</p>
           </div>
           <motion.button
@@ -143,7 +144,7 @@ const CreateEventPage = () => {
               setImages([]);
               setPreviewImages([]);
             }}
-            className="flex items-center gap-2 px-5 py-3 bg-blue-900 hover:bg-blue-950 text-white font-medium rounded-xl shadow-lg transition-all"
+            className="flex items-center gap-2 px-5 py-3 bg-red-900 hover:bg-red-950 text-white font-medium rounded-xl shadow-lg transition-all"
           >
             <Plus size={20} />
             Add Event
@@ -158,7 +159,7 @@ const CreateEventPage = () => {
               placeholder="Search events..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-white rounded-xl border border-gray-200 shadow-sm"
+              className="w-1/2 pl-10 pr-4 py-3 bg-white rounded-xl border border-gray-200 shadow-sm"
             />
             <svg
               className="absolute left-3 top-3.5 text-gray-400 h-5 w-5"
@@ -410,7 +411,7 @@ const CreateEventPage = () => {
         </AnimatePresence>
 
         {/* Toast Notifications */}
-        <ToastContainer position="bottom-right" autoClose={3000} />
+        <ToastContainer position="top-right" autoClose={2000} />
       </div>
     </div>
   );

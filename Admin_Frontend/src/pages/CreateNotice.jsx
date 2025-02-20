@@ -31,7 +31,8 @@ const CreateNotice = () => {
   const fetchNotices = async () => {
     try {
       const response = await axios.get("http://localhost:5000/api/notices");
-      setNotices(response.data);
+      // Reverse the array so that newly created notices appear first
+      setNotices(response.data.reverse());
     } catch (error) {
       console.error("Error fetching notices:", error);
       toast.error("Failed to fetch notices. Please try again.");
@@ -393,7 +394,7 @@ const CreateNotice = () => {
         </AnimatePresence>
 
         {/* Toast Notifications */}
-        <ToastContainer position="bottom-right" autoClose={3000} />
+        <ToastContainer position="top-right" autoClose={2000} />
       </div>
     </div>
   );
