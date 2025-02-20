@@ -21,15 +21,45 @@ const EventDetailsPage = () => {
   }, [eventId]);
 
   if (!event) {
-    return <p className="text-center text-xl mt-20">Loading...</p>;
+    return (
+      <motion.div
+        className="min-h-screen flex flex-col my-28 font-inter"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
+        <span className="text-2xl font-bold px-12">Loading Event...</span>
+        <section className="container mx-auto px-4 py-12 pb-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 auto-rows-auto">
+            {[...Array(8)].map((_, index) => (
+              <div key={index} className="group relative overflow-hidden">
+                <div className="w-full h-64 bg-gray-200 rounded-lg shadow-lg relative overflow-hidden">
+                  <div className="absolute inset-0 animate-shimmer bg-gradient-to-r from-transparent via-white/50 to-transparent transform -translate-x-full" />
+                </div>
+              </div>
+            ))}
+          </div>
+          <style>{`
+            @keyframes shimmer {
+              to {
+                transform: translateX(100%);
+              }
+            }
+            .animate-shimmer {
+              animation: shimmer 1.5s infinite;
+            }
+          `}</style>
+        </section>
+      </motion.div>
+    );
   }
 
   return (
     <motion.div
       className="min-h-screen flex flex-col my-28 font-inter"
-      initial={{ opacity: 0 }} 
-      animate={{ opacity: 1 }} 
-      transition={{ duration: 1 }} 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 1 }}
     >
       <span className="text-2xl font-bold px-12">{event.name}</span>
       <section className="container mx-auto px-4 py-12 pb-20">

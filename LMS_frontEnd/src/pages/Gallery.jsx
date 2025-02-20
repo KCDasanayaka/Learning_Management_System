@@ -3,7 +3,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 
-const GalleryPage = () => {
+const Gallery = () => {
   const [events, setEvents] = useState([]);
   const navigate = useNavigate();
 
@@ -77,4 +77,4 @@ const GalleryPage = () => {
   );
 };
 
-export default GalleryPage;
+export default Gallery;
