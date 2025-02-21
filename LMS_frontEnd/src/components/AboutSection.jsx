@@ -25,7 +25,9 @@ const AboutSection = () => {
         className="absolute inset-0 bg-cover bg-center"
         style={{
           backgroundImage: `url(${image})`,
-          y: y // Parallax effect
+          backgroundAttachment: "fixed",  // Keeps background fixed
+          backgroundPosition: "center",   // Ensures proper positioning
+          backgroundSize: "cover",        // Ensures it covers the whole area
         }}
       ></motion.div>
 
@@ -59,7 +61,7 @@ const AboutSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          Welcome to <span className="text-yellow-400 ">R/Pathagama Maha Vidyalaya</span>, where we provide a nurturing environment for students to learn, grow, and excel. Our dedicated faculty and 
+          Welcome to <span className="text-yellow-400">R/Pathagama Maha Vidyalaya</span>, where we provide a nurturing environment for students to learn, grow, and excel. Our dedicated faculty and 
           state-of-the-art facilities ensure a well-rounded education that prepares students for success in the modern world.
         </motion.p>
 
@@ -89,23 +91,6 @@ const AboutSection = () => {
           ))}
         </motion.div>
       </div>
-
-      {/* Floating Scroll Indicator
-      <motion.div
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1 }}
-      >
-        <span className="text-white text-sm mb-2">Scroll Down</span>
-        <div className="w-4 h-8 border-2 border-white rounded-full">
-          <motion.div
-            className="w-2 h-2 bg-white rounded-full mt-1"
-            animate={{ y: [0, 12, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          ></motion.div>
-        </div>
-      </motion.div> */}
     </section>
   );
 };

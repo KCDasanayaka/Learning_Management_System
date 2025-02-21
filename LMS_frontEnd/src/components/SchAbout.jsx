@@ -67,7 +67,7 @@ const SchAbout = () => {
 
           {/* Divider Line */}
         <motion.div
-          className="w-16 h-1 bg-yellow-500 mb-8 item-center"
+          className="w-16 h-1 bg-yellow-500 mb-8 mx-auto item-center"
           initial={{ scaleX: 0 }}
           whileInView={{ scaleX: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
