@@ -4,6 +4,7 @@ const connectDB = require("./src/config/db");
 
 const noticeRoutes = require("./src/routes/noticeRoutes");
 const eventRoutes = require("./src/routes/eventRoutes");
+const authRoutes = require('./src/routes/authRoutes');
 
 require("dotenv").config();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 // Routes
 app.use("/api", noticeRoutes);
 app.use("/api/events", eventRoutes);
+app.use('/api/auth', authRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
