@@ -39,10 +39,10 @@ const Footer = () => {
               </li>
               <li>
                 <a
-                  href="/news"
+                  href="/notice"
                   className="hover:text-yellow-custom transition duration-200"
                 >
-                  News
+                  Notice
                 </a>
               </li>
               <li>
