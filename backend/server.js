@@ -32,3 +32,11 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
 });
+
+
+
+// const noticeRoutes = require("./src/routes/noticeRoutes");
+// const eventRoutes = require("./src/routes/eventRoutes");
+
+// app.use("/api", noticeRoutes);
+// app.use("/api/events", eventRoutes);

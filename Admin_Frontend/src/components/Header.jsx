@@ -2,13 +2,19 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { IoMdClose } from "react-icons/io";
 import School_logo from "../assets/School_white_logo.png";
+import LogoutButton from "./LogoutButton";
 
-const Header = () => {
+const Header = ({ isLoggedIn, setIsLoggedIn }) => { // Accept isLoggedIn and setIsLoggedIn as props
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // If not logged in, don't render the Header
+  if (!isLoggedIn) {
+    return null;
+  }
 
   return (
     <>
@@ -38,20 +44,17 @@ const Header = () => {
                   Gallery
                 </Link>
               </li>
-              <li>
-                <Link
-                  to="/logout"
-                  className=" rounded transition hover:text-yellow-custom"
-                >
-                  Logout
-                </Link>
-              </li>
             </ul>
           </nav>
 
-          {/* Right: Log Out & Mobile Menu Button */}
+          {/* Right: Logout Button */}
           <div className="flex-1 flex justify-end items-center">
-            <div className="sm:hidden relative z-20">
+            <div className="hidden sm:block relative z-50">
+              <LogoutButton setIsLoggedIn={setIsLoggedIn} /> {/* Pass setIsLoggedIn to LogoutButton */}
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <div className="sm:hidden relative z-20 ml-4">
               <label
                 className="cursor-pointer text-white text-3xl"
                 onClick={toggleMenu}
@@ -66,7 +69,7 @@ const Header = () => {
       <main>
         {/* Mobile Dropdown Menu */}
         <div
-          className={`sm:hidden fixed inset-0 bg-red-custom bg-opacity-95 z-50 flex items-center justify-center transition-transform duration-300 ease-in-out ${
+          className={`sm:hidden fixed inset-0 bg-red-custom bg-opacity-95 z-40 flex items-center justify-center transition-transform duration-300 ease-in-out ${
             isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
@@ -85,7 +88,7 @@ const Header = () => {
             <ul className="flex flex-col items-center space-y-8 text-lg">
               <li>
                 <Link
-                  to="/"
+                  to="/create-notice"
                   className="hover:text-yellow-custom"
                   onClick={toggleMenu}
                 >
@@ -94,7 +97,7 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/create-gallery"
                   className="hover:text-yellow-custom"
                   onClick={toggleMenu}
                 >
@@ -102,13 +105,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  to="/academics"
-                  className="hover:text-yellow-custom"
-                  onClick={toggleMenu}
-                >
-                  Log Out
-                </Link>
+                <LogoutButton setIsLoggedIn={setIsLoggedIn} /> {/* Pass setIsLoggedIn to LogoutButton */}
               </li>
             </ul>
           </div>
