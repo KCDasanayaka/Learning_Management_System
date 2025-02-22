@@ -5,6 +5,7 @@ import { Edit, Trash2, FileText, Plus, X, Calendar, Link2 } from "lucide-react";
 import { ToastContainer, toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
+import useSessionTimeout from "../utils/hooks/useSessionTimeout";
 
 const CreateNotice = () => {
   const [notices, setNotices] = useState([]);
@@ -117,6 +118,9 @@ const CreateNotice = () => {
     indexOfFirstItem,
     indexOfLastItem
   );
+
+
+  useSessionTimeout(); // Handle session timeout
 
   return (
     <div className="min-h-screen bg-white p-8 mt-20 font-inter">

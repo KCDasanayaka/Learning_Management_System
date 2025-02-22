@@ -5,6 +5,7 @@ import { Edit, Trash2, Plus, X, Calendar, Image as ImageIcon } from "lucide-reac
 import { ToastContainer, toast } from "react-toastify";
 import { motion, AnimatePresence } from "framer-motion";
 import "react-toastify/dist/ReactToastify.css";
+import useSessionTimeout from "../utils/hooks/useSessionTimeout";
 
 const CreateEventPage = () => {
   const [events, setEvents] = useState([]);
@@ -126,6 +127,9 @@ const CreateEventPage = () => {
 
   // Date formatting options (e.g. January 15, 2024)
   const dateOptions = { month: "long", day: "numeric", year: "numeric" };
+
+
+  useSessionTimeout(); // Handle session timeout
 
   return (
     <div className="min-h-screen bg-white p-8 mt-20 font-inter">
