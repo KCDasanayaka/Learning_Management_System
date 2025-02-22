@@ -38,21 +38,19 @@ const Header = () => {
                   Gallery
                 </Link>
               </li>
+              <li>
+                <Link
+                  to="/logout"
+                  className=" rounded transition hover:text-yellow-custom"
+                >
+                  Logout
+                </Link>
+              </li>
             </ul>
           </nav>
 
           {/* Right: Log Out & Mobile Menu Button */}
           <div className="flex-1 flex justify-end items-center">
-            <ul className="hidden sm:flex space-x-6">
-              <li>
-                <Link
-                  to="/contact"
-                  className="rounded transition hover:text-yellow-custom"
-                >
-                  Log Out
-                </Link>
-              </li>
-            </ul>
             <div className="sm:hidden relative z-20">
               <label
                 className="cursor-pointer text-white text-3xl"
