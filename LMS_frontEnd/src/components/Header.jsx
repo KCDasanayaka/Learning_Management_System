@@ -51,6 +51,14 @@ const Header = () => {
               </li>
               <li>
                 <Link
+                  to="/lms"
+                  className="rounded transition hover:text-yellow-custom "
+                >
+                  LMS
+                </Link>
+              </li>
+              <li>
+                <Link
                   to="/notice"
                   className="rounded transition hover:text-yellow-custom "
                 >
@@ -137,11 +145,19 @@ const Header = () => {
               </li>
               <li>
                 <Link
-                  to="/news"
+                  to="/lms"
+                  className=" hover:text-yellow-custom "
+                >
+                  LMS
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/notice"
                   className="hover:text-yellow-custom"
                   onClick={toggleMenu}
                 >
-                  Announcements
+                  Notice
                 </Link>
               </li>
               <li>
