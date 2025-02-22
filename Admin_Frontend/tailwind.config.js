@@ -29,6 +29,12 @@ export default {
       },
       fontSize: {
         'xl-custom': '24px',
+      },
+      transitionProperty: {
+        'all': 'all',
+      },
+      transitionDuration: {
+        '200': '200ms',
       }
     },
   },
