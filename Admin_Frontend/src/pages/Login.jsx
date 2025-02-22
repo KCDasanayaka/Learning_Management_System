@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [adminNumber, setAdminNumber] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -16,6 +17,8 @@ const Login = () => {
       const res = await axios.post('http://localhost:5000/api/auth/login', { adminNumber, password });
       setMessage('Login successful');
       console.log(res.data);
+      // Redirect to CreateNotice page after successful login
+      navigate('/create-notice');
     } catch (error) {
       setMessage('Login failed. Please check your credentials.');
     } finally {
