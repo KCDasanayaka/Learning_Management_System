@@ -1,8 +1,27 @@
-# Dependency directories
-node_modules
+# Node.js dependencies
+node_modules/
+package-lock.json
+yarn.lock
 
-# Environment Variables
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+debug.log
+logs/
+
+# Environment variables
 .env
-.env.*.local
 
+# Compiled files
+dist/
+build/
 
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Database
+*.sqlite
+*.sqlite3
+dump.rdb
