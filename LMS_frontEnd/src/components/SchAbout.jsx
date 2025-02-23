@@ -1,82 +1,135 @@
-import React, { useState, useEffect, useRef } from 'react';
-import hImg from '../assets/hImg2.png';
+import { useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { MdSchool, MdGroups, MdLibraryBooks, MdHistory } from 'react-icons/md';
+import image from "../assets/hImg2.png";
 
 const SchAbout = () => {
-  const [animate, setAnimate] = useState(false);
-  const sectionRef = useRef(null);
-
   useEffect(() => {
-    // IntersectionObserver logic to detect when the section enters the viewport
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setAnimate(true); // Trigger animation when the section is in view
-          } else {
-            setAnimate(false); // Reset animation when out of view
-          }
-        });
-      },
-      {
-        threshold: 0.1, // Trigger the animation when 10% of the section is visible
-      }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    // Cleanup observer on component unmount
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
+    window.scrollTo(0, 0);
   }, []);
 
-  // Animation variants
-  const fadeIn = {
-    hidden: { opacity: 0, y: 150 },
-    visible: { opacity: 1, y: 0, transition: { duration: 1 } },
-  };
+  const features = [
+    {
+      icon: <MdSchool />,
+      title: "130+ Years",
+      description: "Of academic excellence and tradition",
+      image: image
+    },
+    {
+      icon: <MdGroups />,
+      title: "600+ Students",
+      description: "Nurturing young minds every year",
+      image: image
+    },
+    {
+      icon: <MdLibraryBooks />,
+      title: "30+ Faculty",
+      description: "Dedicated and experienced staff",
+      image: image
+    },
+    {
+      icon: <MdHistory />,
+      title: "Modern Curriculum",
+      description: "Balancing tradition and innovation",
+      image: image
+    }
+  ];
 
   return (
-    <motion.div
-      id="sch-about"
-      ref={sectionRef}
-      initial="hidden"
-      animate={animate ? 'visible' : 'hidden'}
-      variants={fadeIn}
-      className="font-kumbh"
-    >
-      <div className="flex flex-col lg:flex-row items-center justify-between gap-12 m-12">
-        {/* Text Section */}
-        <div className="text-black font-kumbh flex-1 ml-10">
-          <h1 className="text-4xl lg:text-6xl font-bold lg:text-left text-center">
-            About
-          </h1>
-          <h3 className="text-2xl lg:text-4xl font-bold mt-2 lg:text-left text-center">
-            R/Pathagama Maha Vidyalaya
-          </h3>
-          <p className="text-base lg:text-base lg:text-justify text-center mt-2">
-            R/Pathagama Maha Vidyalaya, established in 1891, stands as a pillar
-            of Sri Lankan education. With dedicated faculty and a serene
-            environment, we provide well-rounded education that fosters growth
-            and prepares students for success in the modern world.
-          </p>
+    <div className="relative overflow-hidden bg-gray-50 py-20">
+      {/* Background Image with Gradient Overlay */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src={image}
+          alt="School Campus"
+          className="w-full h-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/80 to-red-900/60"></div>
+      </div>
+
+      {/* Content Container */}
+      <motion.div
+        className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
+        {/* Section Heading */}
+        <div className="text-center mb-16">
+          <motion.h2
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-4xl md:text-5xl font-bold text-white mb-4"
+          >
+            About 
+          </motion.h2>
+
+          {/* Divider Line */}
+        <motion.div
+          className="w-16 h-1 bg-yellow-500 mb-8 mx-auto item-center"
+          initial={{ scaleX: 0 }}
+          whileInView={{ scaleX: 1 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+        ></motion.div>
+
+        
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-white/80 max-w-2xl mx-auto"
+          >
+            Established in 1891, we have been shaping futures with a perfect blend of tradition and innovation.
+          </motion.p>
         </div>
 
-        {/* Image Section */}
-        <div className="w-full max-w-xs lg:max-w-sm flex-shrink-0 mr-10">
-          <img
-            src={hImg}
-            alt="School Image"
-            className="w-full h-auto rounded-lg shadow-md"
-          />
+        {/* Feature Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={feature.image}
+                  alt="Background"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 p-8 h-full flex flex-col justify-end text-white">
+                <div className="text-4xl mb-4">{feature.icon}</div>
+                <h3 className="text-2xl font-bold mb-2">{feature.title}</h3>
+                <p className="text-lg">{feature.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-      </div>
-    </motion.div>
+
+        {/* Additional Content */}
+        <motion.div
+          className="mt-20 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+        
+          <p className="text-lg text-white/80 max-w-2xl mx-auto">
+            To provide a nurturing environment that fosters academic excellence, 
+            personal growth, and social responsibility, preparing students to 
+            thrive in a rapidly changing world.
+          </p>
+        </motion.div>
+      </motion.div>
+    </div>
   );
 };
 

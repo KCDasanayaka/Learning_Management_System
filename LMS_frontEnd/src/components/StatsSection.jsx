@@ -1,31 +1,82 @@
-import "react";
+import React from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+import { MdPeople, MdSchool, MdClass } from "react-icons/md";
 
 const StatsSection = () => {
-    
   const [ref, inView] = useInView({
-    triggerOnce: true, // Trigger only once
-    threshold: 0.2, // Trigger when 20% of the section is visible
+    triggerOnce: true,
+    threshold: 0.2,
   });
 
+  const statItemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
-    <section className="py-12">
-      <div
-        ref={ref}
-        className="container mx-auto flex flex-wrap justify-around text-center px-4 font-kumbh"
-      >
-        <div className="w-full md:w-1/2 lg:w-1/4 mb-6 md:mb-0 ">
-          <h3 className="text-5xl font-bold text-yellow-custom">
-            {inView && <CountUp end={600} duration={2.5} separator="," />}+
-          </h3>
-          <p className="text-gray-700 text-2xl font-bold">Students</p>
-        </div>
-        <div className="w-full md:w-1/2 lg:w-1/4">
-          <h3 className="text-5xl font-bold text-yellow-custom">
-            {inView && <CountUp end={30} duration={2.5} />}+
-          </h3>
-          <p className="text-gray-700 text-2xl font-bold">Teachers</p>
+    <section className="z-20 py-10">
+      <div ref={ref} className="container mx-auto px-8 font-inter">
+        {/* Centered Grid Container */}
+        <div className="flex justify-center">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-20 max-w-4xl">
+            {/* Students Stat */}
+            <motion.div
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center"
+              variants={statItemVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-gray-100 p-4 rounded-full">
+                  <MdPeople className="text-3xl text-red-custom" />
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-red-custom mb-2">
+                {inView && <CountUp end={600} duration={2.5} separator="," />}+
+              </h3>
+              <p className="text-gray-700 text-xl font-semibold">Students</p>
+            </motion.div>
+
+            {/* Teachers Stat */}
+            <motion.div
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center"
+              variants={statItemVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              transition={{ delay: 0.2 }}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-gray-100 p-4 rounded-full">
+                  <MdSchool className="text-3xl text-red-custom" />
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-red-custom mb-2">
+                {inView && <CountUp end={30} duration={2.5} />}+
+              </h3>
+              <p className="text-gray-700 text-xl font-semibold">Teachers</p>
+            </motion.div>
+
+            {/* Classes Stat */}
+            <motion.div
+              className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center"
+              variants={statItemVariants}
+              initial="hidden"
+              animate={inView ? "visible" : "hidden"}
+              transition={{ delay: 0.4 }}
+            >
+              <div className="flex justify-center mb-4">
+                <div className="bg-gray-100 p-4 rounded-full">
+                  <MdClass className="text-3xl text-red-custom" />
+                </div>
+              </div>
+              <h3 className="text-4xl font-bold text-red-custom mb-2">
+                {inView && <CountUp end={12} duration={2.5} separator="," />}
+              </h3>
+              <p className="text-gray-700 text-xl font-semibold">Classes</p>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
