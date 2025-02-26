@@ -3,7 +3,7 @@ import School_logo from "../assets/SchoolLogos/School_white_logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-red-900 text-white py-8 font-inter">
+    <footer className="bg-red-custom text-white py-8 font-inter">
       <div className="container mx-auto px-4 text-center">
         <div className="mb-8">
           <img
@@ -16,7 +16,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Home
                 </a>
@@ -24,31 +24,31 @@ const Footer = () => {
               <li>
                 <a
                   href="/about"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   About
                 </a>
               </li>
               <li>
                 <a
-                  href="/academics"
-                  className="hover:text-yellow-500 transition duration-200"
+                  href="/academic"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Academics
                 </a>
               </li>
               <li>
                 <a
-                  href="/news"
-                  className="hover:text-yellow-500 transition duration-200"
+                  href="/notice"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
-                  News
+                  Notice
                 </a>
               </li>
               <li>
                 <a
                   href="/gallery"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Gallery
                 </a>
@@ -56,7 +56,7 @@ const Footer = () => {
               <li>
                 <a
                   href="/contact"
-                  className="hover:text-yellow-500 transition duration-200"
+                  className="hover:text-yellow-custom transition duration-200"
                 >
                   Contact Us
                 </a>
